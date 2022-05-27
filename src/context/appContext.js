@@ -1,11 +1,16 @@
-import React, { useState, useContext, useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
 import { DISPLAY_ALERT, CLEAR_ALERT, VALUE_ADDED } from "./actions";
 
+const data = {
+  id: 1,
+  firstName: "james",
+};
 const initialState = {
   firstName: "",
   showAlert: false,
   alertText: "",
+  people: [],
 };
 
 const AppContext = React.createContext();
@@ -24,8 +29,12 @@ const AppProvider = ({ children }) => {
     }, 3000);
   };
 
-  const valueAdded = () => {
-    dispatch({ type: VALUE_ADDED });
+  const valueAdded = (user) => {
+    dispatch({
+      type: VALUE_ADDED,
+      payload: user,
+    });
+    console.log(user);
     clearAlert();
   };
 

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { useAppContext } from "../context/appContext";
+import { initialState } from "../context/appContext";
 import FormRow from "../components/FormRow";
-
-const initialState = {
-  firstName: "",
-  showAlert: false,
-  alertText: "",
-};
 
 const Form = () => {
   const { displayAlert, valueAdded } = useAppContext();
@@ -22,7 +17,9 @@ const Form = () => {
     let { firstName } = values;
 
     if (firstName) {
-      valueAdded();
+      const user = { firstName, id: Math.random() };
+      valueAdded(user);
+      setValues(initialState);
     } else {
       displayAlert();
     }
@@ -41,6 +38,14 @@ const Form = () => {
         />
         <button type="submit">add</button>
       </form>
+      {values.people.map((item) => {
+        const { firstName, id } = item;
+        return (
+          <div key={id}>
+            <h2>{firstName}</h2>
+          </div>
+        );
+      })}
     </div>
   );
 };
