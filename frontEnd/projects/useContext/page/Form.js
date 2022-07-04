@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useAppContext } from "../context/appContext";
-import { initialState } from "../context/appContext";
 import FormRow from "../components/FormRow";
 
 const Form = () => {
-  const { displayAlert, valueAdded } = useAppContext();
+  const { people, displayAlert, valueAdded } = useAppContext();
 
-  const [values, setValues] = useState(initialState);
+  const [values, setValues] = useState({});
 
   const onChangeHandler = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -14,12 +13,10 @@ const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    let { firstName } = values;
 
-    if (firstName) {
-      const user = { firstName, id: Math.random() };
-      valueAdded(user);
-      setValues(initialState);
+    if (values.firstName) {
+      valueAdded({ ...values, id: Math.random() });
+      setValues({});
     } else {
       displayAlert();
     }
@@ -36,13 +33,22 @@ const Form = () => {
           value={values.firstName}
           onChange={onChangeHandler}
         />
+        <input
+          type="text"
+          name="lastName"
+          value={values.lastName}
+          onChange={onChangeHandler}
+        />
+
         <button type="submit">add</button>
       </form>
-      {values.people.map((item) => {
-        const { firstName, id } = item;
+      {people.map((item) => {
+        const { firstName, lastName, id } = item;
         return (
           <div key={id}>
-            <h2>{firstName}</h2>
+            <h2>
+              {firstName} {lastName}
+            </h2>
           </div>
         );
       })}

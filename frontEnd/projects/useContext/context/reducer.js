@@ -22,7 +22,7 @@ const reducer = (state, action) => {
       ...state,
       showAlert: true,
       alertText: "item added",
-      people: action.payload.user,
+      people: [...state.people, action.payload],
     };
   }
 

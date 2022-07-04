@@ -2,10 +2,6 @@ import React, { useContext, useReducer } from "react";
 import reducer from "./reducer";
 import { DISPLAY_ALERT, CLEAR_ALERT, VALUE_ADDED } from "./actions";
 
-const data = {
-  id: 1,
-  firstName: "james",
-};
 const initialState = {
   firstName: "",
   showAlert: false,
@@ -34,7 +30,6 @@ const AppProvider = ({ children }) => {
       type: VALUE_ADDED,
       payload: user,
     });
-    console.log(user);
     clearAlert();
   };
 
