@@ -1,13 +1,13 @@
 import express from "express";
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  console.log("get item");
-});
+//import controller
+import {
+  getAllWorkouts,
+  getSingleWorkout,
+  createWorkouts,
+} from "../controller/workoutsController.js";
 
-//get single workout
-router.get("/:id", (req, res) => {
-  res.send("get workout");
-});
-
+router.route("/").get(getAllWorkouts).post(createWorkouts);
+router.route("/:id").get(getSingleWorkout);
 export default router;
