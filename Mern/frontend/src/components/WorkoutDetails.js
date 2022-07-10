@@ -5,14 +5,32 @@ const WorkoutDetails = ({ workout }) => {
   const { title, reps, load, createdAt } = workout;
   const { dispatch } = useWorkoutContext();
 
-  const clickHandler = async () => {
-    const response = await fetch("/api/workouts/" + workout._id, {
+  const deleteHandler = async () => {
+    const response = await fetch(`/api/workouts/${workout._id}`, {
       method: "DELETE",
     });
     const json = await response.json();
 
     if (response.ok) {
       dispatch({ type: "DELETE_WORKOUT", payload: json });
+    }
+  };
+
+  const editHandler = async () => {
+    const workout = { title, load, reps };
+
+    const response = await fetch(`/api/workouts/${workout._id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ workout }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const json = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "UPDATE_WORKOUT", payload: json });
     }
   };
 
@@ -28,7 +46,12 @@ const WorkoutDetails = ({ workout }) => {
         {reps}
       </p>
       <p>{createdAt}</p>
-      <span onClick={clickHandler}>delete</span>
+      <div className="delete" onClick={deleteHandler}>
+        delete
+      </div>
+      <div className="edit" onClick={editHandler}>
+        edit
+      </div>
     </div>
   );
 };

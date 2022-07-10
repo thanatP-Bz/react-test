@@ -5,6 +5,23 @@ import Workout from "../model/workoutModel.js";
 const createWorkouts = async (req, res) => {
   const { title, reps, load } = req.body;
 
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("title");
+  }
+  if (!reps) {
+    emptyFields.push("reps");
+  }
+  if (!load) {
+    emptyFields.push("load");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "please provide all values", emptyFields });
+  }
+
   try {
     const workout = await Workout.create({ title, reps, load });
     res.status(200).json(workout);
@@ -51,17 +68,18 @@ const deleteWorkout = async (req, res) => {
 //UPDATE workout
 const updateWorkout = async (req, res) => {
   const { id } = req.params;
+  const { title, reps, load } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ msg: `no such workout` });
   }
 
-  const workout = await Workout.findByIdAndUpdate({ _id: id }, { ...req.body });
-  if (!workout) {
-    return res.status(404).json({ msg: `no such workout` });
-  }
+  const workout = await Workout.findOne({ _id: id });
+  workout.title = title;
+  workout.reps = reps;
+  workout.load = load;
 
-  res.status(200).json(workout);
+  await workout.save();
 };
 
 export {

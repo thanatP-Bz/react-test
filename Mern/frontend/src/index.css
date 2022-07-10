@@ -56,17 +56,27 @@ header a {
   font-size: 0.9em;
   color: #555;
 }
-.workout-details span {
+
+.workout-details .delete {
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  cursor: pointer;
+  padding: 6px;
+  background-color: #ee2565;
+  border-radius: 5px;
+  color: #fff;
+}
+.workout-details .edit {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
   padding: 6px;
-  border-radius: 50%;
-  color: #333;
+  background-color: #e8d52f;
+  border-radius: 5px;
+  color: #fff;
 }
-
 /* new workout form */
 label,
 input {
@@ -95,6 +105,9 @@ div.error {
   background: #ffefef;
   border: 1px solid var(--error);
   color: var(--error);
-  border-radius: 4px;
+  border-radius: 1px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
 }
