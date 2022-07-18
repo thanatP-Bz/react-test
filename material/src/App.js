@@ -1,11 +1,16 @@
-import { Button } from "@mui/material";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import {
+  Navbar,
+  SideBar,
+  RightBar,
+  Feed,
+} from "../src/components/navigation/index";
+
 function App() {
   return (
     <div>
-      <Button startIcon={<ArrowBackIosNewIcon />} variant="contained">
-        click
-      </Button>
+      <Navbar />
+      <Feed />
+      <SideBar />
     </div>
   );
 }

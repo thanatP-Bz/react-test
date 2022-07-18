@@ -16,24 +16,6 @@ const WorkoutDetails = ({ workout }) => {
     }
   };
 
-  const editHandler = async () => {
-    const workout = { title, load, reps };
-
-    const response = await fetch(`/api/workouts/${workout._id}`, {
-      method: "PATCH",
-      body: JSON.stringify({ workout }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const json = await response.json();
-
-    if (response.ok) {
-      dispatch({ type: "UPDATE_WORKOUT", payload: json });
-    }
-  };
-
   return (
     <div className="workout-details">
       <h4>{title}</h4>
@@ -49,9 +31,7 @@ const WorkoutDetails = ({ workout }) => {
       <div className="delete" onClick={deleteHandler}>
         delete
       </div>
-      <div className="edit" onClick={editHandler}>
-        edit
-      </div>
+      <div className="edit">edit</div>
     </div>
   );
 };

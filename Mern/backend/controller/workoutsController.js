@@ -52,6 +52,7 @@ const getSingleWorkout = async (req, res) => {
 //DELETE workout
 const deleteWorkout = async (req, res) => {
   const { id } = req.params;
+  console.log(mongoose.Types.ObjectId.isValid(id));
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ msg: `no such workout` });
@@ -68,13 +69,20 @@ const deleteWorkout = async (req, res) => {
 //UPDATE workout
 const updateWorkout = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
+  console.log(mongoose.Types.ObjectId.isValid(id));
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).json({ msg: `no such workout` });
   }
 
-  const workout = await Workout.findOneAndUpdate({ _id: id }, { ...req.body });
+  const workout = await Workout.findOneAndUpdate(
+    { _id: id },
+    { ...req.body },
+    { new: true }
+  );
+  if (!workout) {
+    return res.status(404).json({ msg: `no such workout` });
+  }
 
   res.status(200).json(workout);
 };
