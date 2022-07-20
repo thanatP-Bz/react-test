@@ -111,3 +111,14 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+/* edit page */
+.editForm {
+  width: 100%;
+  width: 100vh;
+  position: relative;
+}
+
+.newEditForm {
+  position: absolute;
+}

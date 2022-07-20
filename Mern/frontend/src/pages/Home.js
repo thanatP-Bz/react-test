@@ -3,6 +3,7 @@ import { useEffect } from "react";
 //components
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
+import EditWorkoutForm from "../components/EditWorkoutForm";
 import { useWorkoutContext } from "../hooks/useWorkoutContext";
 
 const Home = () => {
@@ -18,17 +19,22 @@ const Home = () => {
       }
     };
     fetchWorkouts();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className="home">
-      <div className="workouts">
-        {workouts &&
-          workouts.map((workout) => {
-            return <WorkoutDetails key={workout._id} workout={workout} />;
-          })}
+    <div>
+      <div className="editForm">
+        <EditWorkoutForm />
       </div>
-      <WorkoutForm />
+      <div className="home">
+        <div className="workouts">
+          {workouts &&
+            workouts.map((workout) => {
+              return <WorkoutDetails key={workout._id} workout={workout} />;
+            })}
+        </div>
+        <WorkoutForm />
+      </div>
     </div>
   );
 };

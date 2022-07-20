@@ -4,14 +4,17 @@ import {
   RightBar,
   Feed,
 } from "../src/components/navigation/index";
-
+import { Box, Container, Stack } from "@mui/material";
 function App() {
   return (
-    <div>
+    <Box>
       <Navbar />
-      <Feed />
-      <SideBar />
-    </div>
+      <Stack direction="row" spacing={2} justifyContent="space-between">
+        <SideBar />
+        <Feed />
+        <RightBar />
+      </Stack>
+    </Box>
   );
 }
 
