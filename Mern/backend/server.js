@@ -1,8 +1,12 @@
 import express from "express";
-import workoutRoutes from "./Routes/workouts.js";
-import connectDB from "./database/connectDB.js";
 import dotenv from "dotenv";
 dotenv.config();
+
+//route
+import workoutRoutes from "./Routes/workouts.js";
+import userRoutes from "./Routes/user.js";
+//connect DB
+import connectDB from "./database/connectDB.js";
 
 //express app
 const app = express();
@@ -12,6 +16,8 @@ app.use(express.json());
 
 //workouts route
 app.use("/api/workouts", workoutRoutes);
+//user routes
+app.use("/api/user", userRoutes);
 
 const port = process.env.PORT || 5000;
 

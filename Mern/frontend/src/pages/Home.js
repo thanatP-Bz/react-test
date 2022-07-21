@@ -23,9 +23,6 @@ const Home = () => {
 
   return (
     <div>
-      <div className="editForm">
-        <EditWorkoutForm />
-      </div>
       <div className="home">
         <div className="workouts">
           {workouts &&
