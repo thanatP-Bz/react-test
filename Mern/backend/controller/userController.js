@@ -5,7 +5,9 @@ const signupUser = async (req, res) => {
 
   try {
     const user = await User.signup(email, password);
-    res.status(200).json({ email, user });
+    const token = user.createJWT();
+
+    res.status(201).json({ user: { email: user.email, user: user }, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
