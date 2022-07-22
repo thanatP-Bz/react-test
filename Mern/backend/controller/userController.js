@@ -14,7 +14,18 @@ const signupUser = async (req, res) => {
 };
 
 const loginUser = async (req, res) => {
-  res.send("login user");
+  const { email, password } = req.body;
+
+  try {
+    const login = await User.comparePassword(email, password);
+
+    if (!login) {
+      console.log("no values");
+    }
+    return console.log("login user");
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 export { loginUser, signupUser };
