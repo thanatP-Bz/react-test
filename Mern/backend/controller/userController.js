@@ -7,7 +7,10 @@ const signupUser = async (req, res) => {
     const user = await User.signup(email, password);
     const token = user.createJWT();
 
-    res.status(201).json({ user: { email: user.email, user: user }, token });
+    res.status(201).json({
+      email,
+      token,
+    });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -17,12 +20,10 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const login = await User.comparePassword(email, password);
+    const user = await User.login(email, password);
+    const token = user.createJWT();
 
-    if (!login) {
-      console.log("no values");
-    }
-    return console.log("login user");
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

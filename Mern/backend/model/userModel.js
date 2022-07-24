@@ -14,7 +14,6 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    select: false,
   },
 });
 
@@ -52,17 +51,15 @@ userSchema.statics.signup = async function (email, password) {
   return user;
 };
 
-//match password
-userSchema.methods.isMatch = async function (password) {
-  const isMatch = await bcrypt.compare(user, this.password);
-  return isMatch;
-};
-
 //compare password
-userSchema.statics.comparePassword = async function (email, userPassword) {
-  //check password
-  if (!email || !userPassword) {
-    throw Error("please provide all value");
+userSchema.statics.login = async function (email, password) {
+  const user = await this.findOne({ email });
+
+  if (user) {
+    const auth = await bcrypt.compare(password, user.password);
+    if (auth) {
+      return user;
+    }
   }
 };
 

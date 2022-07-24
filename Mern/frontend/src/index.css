@@ -111,14 +111,29 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
-
-/* edit page */
-.editForm {
-  width: 100%;
-  width: 100vh;
-  position: relative;
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
 }
-
-.newEditForm {
-  position: absolute;
+nav a {
+  margin-left: 10px;
+  background-color: #24c99a;
+  padding: 0.5rem 0.7rem;
+  border-radius: 5px;
+  color: #fff;
+}
+nav a:hover {
+  background-color: #ddd;
+  color: #333;
+  transition: 0.3s;
+}
+/* auth forms */
+form.signup,
+form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
 }

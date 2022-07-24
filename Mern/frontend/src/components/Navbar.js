@@ -5,8 +5,12 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h3>Workout From Home</h3>
+          <h3>WorkOut</h3>
         </Link>
+        <nav>
+          <Link to="/login">Log In</Link>
+          <Link to="/signup">Sign Up</Link>
+        </nav>
       </div>
     </header>
   );
