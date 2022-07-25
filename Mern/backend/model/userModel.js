@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import validator from "validator";
-import jwt from "jsonwebtoken";
 
 const Schema = mongoose.Schema;
 
@@ -18,9 +17,6 @@ const userSchema = new Schema({
 });
 
 //create JWT
-userSchema.methods.createJWT = function () {
-  return jwt.sign({ userId: this._id }, "secret", { expiresIn: "30d" });
-};
 
 //hash password
 userSchema.statics.signup = async function (email, password) {
