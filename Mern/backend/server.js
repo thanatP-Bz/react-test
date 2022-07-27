@@ -14,10 +14,10 @@ const app = express();
 //middleware
 app.use(express.json());
 
-//workouts route
-app.use("/api/workouts", workoutRoutes);
 //user routes
 app.use("/api/user", userRoutes);
+//workouts route
+app.use("/api/workouts", workoutRoutes);
 
 const port = process.env.PORT || 5000;
 

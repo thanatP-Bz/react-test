@@ -2,7 +2,7 @@ import User from "../model/userModel.js";
 import jwt from "jsonwebtoken";
 
 const createJWT = function (_id) {
-  return jwt.sign({ _id }, "secret", { expiresIn: "30d" });
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "30d" });
 };
 
 const signupUser = async (req, res) => {
