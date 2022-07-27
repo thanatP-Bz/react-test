@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch("/api/workouts", {
-        headers: { Authorization: `Bearer ${user.json}` },
+        headers: { Authorization: `Bearer ${user.token}` },
       });
       const json = await response.json();
 
@@ -22,7 +22,7 @@ const Home = () => {
       }
     };
     fetchWorkouts();
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   return (
     <div>

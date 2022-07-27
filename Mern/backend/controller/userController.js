@@ -35,7 +35,7 @@ const loginUser = async (req, res) => {
     if (!user) {
       res.status(404).json({ msg: `user not found` });
     }
-    res.status(200).json({ user, token });
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

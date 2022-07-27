@@ -28,7 +28,7 @@ export const useSignUp = () => {
       localStorage.setItem("user", JSON.stringify(json));
 
       //update user
-      dispatch({ type: "SIGN_UP", payload: json });
+      dispatch({ type: "LOG_IN", payload: json });
 
       //update loading State
       setIsLoading(false);
