@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Abril Fatface", curs;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
