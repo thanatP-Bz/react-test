@@ -1,21 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { AppBar, Toolbar, styled, Typography, Button } from "@mui/material";
-
-const StyledToolbar = styled(Toolbar)({
-  display: "flex",
-  justifyContent: "space-between",
-});
+import {
+  StyledNavbar,
+  Navigation,
+  LogoLink,
+  LinkContainer,
+  NavLink,
+} from "../style/styleNavbar";
 
 const Navbar = () => {
   return (
-    <AppBar position="sticky">
-      <StyledToolbar>
-        <Typography variant="6">LOGO</Typography>
+    <StyledNavbar>
+      <Navigation>
+        <LogoLink to="/">LOGO</LogoLink>
 
-        <Button variant="text">Login</Button>
-      </StyledToolbar>
-    </AppBar>
+        <LinkContainer>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Sign Up</NavLink>
+        </LinkContainer>
+      </Navigation>
+    </StyledNavbar>
   );
 };
 

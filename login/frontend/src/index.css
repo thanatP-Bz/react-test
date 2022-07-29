@@ -8,6 +8,7 @@
 
 body {
   font-family: "Abril Fatface", curs;
+  background-color: azure;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -16,4 +17,69 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+form.signup,
+form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+form h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+label,
+input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form .btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+form button {
+  color: #fff;
+  padding: 0.7rem 2.4rem;
+  background-color: rgb(86, 209, 86);
+  margin: 0px 7px;
+  text-decoration: none;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: "Abril Fatface", curs;
+  justify-content: center;
+  margin: 4px;
+}
+
+form button:hover {
+  background-color: rgb(137, 209, 66);
+  color: #fff;
+  transition: 0.3s;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 1px;
+  margin: 20px 0;
 }
