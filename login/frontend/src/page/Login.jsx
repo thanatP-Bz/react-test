@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { useLogin } from "../hook/useLogin";
+import Alert from "../components/Alert";
+import { useEffect } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { error, isLoading, login } = useLogin();
+
+  useEffect(() => {
+    setTimeout(() => {
+      <Alert />;
+    }, 3000);
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -17,6 +25,7 @@ const Login = () => {
 
   return (
     <form className="login" onSubmit={submitHandler}>
+      {error && <Alert error={error} />}
       <h3>Login</h3>
       <div>
         <label>email</label>
@@ -38,7 +47,6 @@ const Login = () => {
 
       <div className="btn-container">
         <button disabled={isLoading}>login</button>
-        {error && <div className="error">{error}</div>}
       </div>
     </form>
   );

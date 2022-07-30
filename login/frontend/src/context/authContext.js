@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 
 const auth = {
   user: null,
+  alertText: "",
 };
 
 export const AuthContextProvider = ({ children }) => {

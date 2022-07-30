@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
 
+:root {
+  --red-light: #f8d7da;
+  --red-dark: #842029;
+  --green-light: #d1e7dd;
+  --green-dark: #0f5132;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -75,11 +82,18 @@ form button:hover {
   transition: 0.3s;
 }
 
-div.error {
+div.alert {
   padding: 10px;
-  background: #ffefef;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 1px;
+  border-radius: 100px;
   margin: 20px 0;
+  text-align: center;
+}
+
+.alert-danger {
+  color: var(--red-dark);
+  background: var(--red-light);
+}
+.alert-success {
+  color: var(--green-dark);
+  background: var(--green-light);
 }

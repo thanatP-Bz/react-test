@@ -56,6 +56,11 @@ UserSchema.statics.signup = async function (email, password) {
 UserSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
 
+  //check email and password
+  if (!email || !password) {
+    throw Error("please provide all value");
+  }
+
   if (!user) {
     throw Error("cannot find the Email");
   }
