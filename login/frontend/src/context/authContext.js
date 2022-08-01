@@ -7,6 +7,8 @@ export const AuthContext = createContext();
 const auth = {
   user: null,
   alertText: "",
+  alertType: "",
+  showAlert: false,
 };
 
 export const AuthContextProvider = ({ children }) => {
@@ -19,8 +21,6 @@ export const AuthContextProvider = ({ children }) => {
       dispatch({ type: LOGIN, payload: user });
     }
   }, []);
-
-  console.log(state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>

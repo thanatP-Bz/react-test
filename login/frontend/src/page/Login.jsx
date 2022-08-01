@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { useLogin } from "../hook/useLogin";
 import Alert from "../components/Alert";
-import { useEffect } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState({
+    show: true,
+    type: "danger",
+    msg: `hello world`,
+  });
   const { error, isLoading, login } = useLogin();
-
-  useEffect(() => {
-    setTimeout(() => {
-      <Alert />;
-    }, 3000);
-  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -1,12 +1,11 @@
-import { LOGIN, LOGIN_DANGER, LOGOUT } from "./authAction";
+import { LOGIN, LOGOUT } from "./authAction";
 
 export const authReducer = (state, action) => {
   switch (action.type) {
     case LOGIN:
-      return { user: action.payload };
+      return { ...state, user: action.payload };
     case LOGOUT:
       return { user: null };
-
     default:
       return state;
   }
