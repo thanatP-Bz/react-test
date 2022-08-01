@@ -9,6 +9,7 @@ const Navbar = () => {
   const handlerLogout = () => {
     logout();
   };
+
   return (
     <header>
       <div className="container">

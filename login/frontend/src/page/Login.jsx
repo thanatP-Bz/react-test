@@ -6,14 +6,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showAlert, setShowAlert] = useState({
-    show: true,
-    type: "danger",
-    msg: `hello world`,
+    show: false,
+    type: "",
+    msg: "",
   });
   const { error, isLoading, login } = useLogin();
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      displayAlert(true, "danger", "please provide all value");
+    }
 
     login(email, password);
 
@@ -21,9 +25,13 @@ const Login = () => {
     setPassword("");
   };
 
+  const displayAlert = (show = false, type = "", msg = "") => {
+    setShowAlert({ show, type, msg });
+  };
+
   return (
     <form className="login" onSubmit={submitHandler}>
-      {error && <Alert error={error} />}
+      {showAlert.show && <Alert {...showAlert} removeAlert={displayAlert} />}
       <h3>Login</h3>
       <div>
         <label>email</label>

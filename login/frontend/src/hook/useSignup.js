@@ -1,17 +1,17 @@
-import { useAuthContext } from "../context/authContext";
 import { useState } from "react";
+import { useAuthContext } from "../context/authContext";
 import { LOGIN } from "../context/authAction";
 
-export const useLogin = () => {
+const useSignup = () => {
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
-  const login = async (email, password) => {
+  const signUp = async (email, password) => {
     setError(null);
     setLoading(true);
 
-    const response = await fetch("/api/user/login", {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -25,15 +25,16 @@ export const useLogin = () => {
     }
 
     if (response.ok) {
-      //set to local storage
+      //update state
+      dispatch({ type: LOGIN, payload: json });
+
+      //set to storage
       localStorage.setItem("user", JSON.stringify(json));
+
+      setLoading(false);
     }
-
-    //dispatch
-    dispatch({ type: LOGIN, payload: json });
-
-    setLoading(false);
   };
-
-  return { error, loading, login };
+  return { signUp, isLoading };
 };
+
+export default useSignup;
