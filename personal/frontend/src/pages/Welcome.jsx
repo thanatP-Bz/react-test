@@ -30,13 +30,8 @@ const Welcome = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center">
-        <form
-          onSubmit={onSubmitHandler}
-          className="max-w-[400px] w-full mx-auto shadow-xl p-8 rounded-md "
-        >
-          <h3 className=" text-2xl text-center font-bold text-[#10ac84]">
-            {values.isMember ? "Login" : "Sign Up"}
-          </h3>
+        <form onSubmit={onSubmitHandler} className="form ">
+          <h3 className="form-h3">{values.isMember ? "Login" : "Sign Up"}</h3>
 
           {!values.isMember && (
             <div className="flex flex-col py-2">
@@ -53,12 +48,10 @@ const Welcome = () => {
             <label className="text-gray-600">password</label>
             <input className="form-input" type="password" />
           </div>
-          <button className="w-full bg-[#10ac84] mt-3 mb-2 text-white pt-2 rounded-md text-lg hover:bg-[#5ccaae]">
-            submit
-          </button>
+          <button className="form-btn">submit</button>
 
           <div className="text-center">
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-sm">
               {values.isMember ? "No a member yet ?" : "Already a member ?"}
               <button onClick={toggleMember} className="text-blue-600 pl-2">
                 {values.isMember ? "Sign Up" : "Login"}

@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer components {
+  .form {
+    @apply max-w-[400px] w-full mx-auto shadow-xl p-8 rounded-md border-t-[#10ac84] border-t-4;
+  }
+
+  .form-h3 {
+    @apply text-2xl text-center font-bold text-[#10ac84];
+  }
+
   .form-input {
     @apply rounded-md mt-2 p-2 border border-gray-300  focus:outline-[#10ac84] outline-1 text-gray-600;
+  }
+
+  .form-btn {
+    @apply w-full bg-[#10ac84] mt-3 mb-2 text-white pt-2 rounded-md text-lg hover:bg-[#5ccaae];
   }
 }
 
