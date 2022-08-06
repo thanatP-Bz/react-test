@@ -17,7 +17,7 @@ const Hero = () => {
           magnam molestias debitis, ipsa sapiente. Lorem ipsum dolor sit amet,
           consectetur adipisicing
         </p>
-        <button className="text-lg my-5 py-2 px-7 text-white rounded-md bg-green-400 hover:bg-green-500">
+        <button className="text-lg my-5 py-2 px-12 text-white rounded-md bg-green-400 hover:bg-green-500">
           Read More
         </button>
       </div>
