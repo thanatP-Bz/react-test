@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer components {
+  /* form */
   .form {
     @apply max-w-[400px] w-full mx-auto shadow-xl p-8 rounded-md border-t-[#10ac84] border-t-4;
   }
@@ -18,9 +19,18 @@
   .form-btn {
     @apply w-full bg-[#10ac84] mt-3 mb-2 text-white pt-2 rounded-md text-lg hover:bg-[#5ccaae];
   }
+
+  /* sidebar */
+  .sidebar-btn {
+    @apply bg-green-400 text-white pt-2 mx-20 rounded-md text-lg hover:bg-[#5ccaae] hover:shadow-md mb-3 relative md:mx-10;
+  }
+
+  .sidebar-icon {
+    @apply absolute left-[10%] top-[30%];
+  }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Padauk&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Padauk&display=swap");
 
 * {
   margin: 0;
