@@ -6,6 +6,7 @@ import Showcase from "../components/Showcase";
 import Compliments from "../components/Compliments";
 import Event from "../components/Event";
 import Message from "../components/Message";
+import HomeGallery from "../components/HomeGallery";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Compliments />
       <Event />
       <Message />
+      <HomeGallery />
     </div>
   );
 };

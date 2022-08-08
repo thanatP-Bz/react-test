@@ -1,8 +1,6 @@
 import React from "react";
 import kid1 from "../images/kid-1.jpg";
 import kid2 from "../images/kid-2.jpg";
-import kid7 from "../images/kid-7.jpg";
-import kid8 from "../images/kid-8.jpg";
 
 const Showcase = () => {
   return (
