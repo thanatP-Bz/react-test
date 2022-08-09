@@ -3,9 +3,9 @@ import family3 from "../images/family-3.jpg";
 
 const Message = () => {
   return (
-    <div className="my-[10%] mx-[7%]">
-      <div className="flex flex-row-reverse h-[40vh] w-full relative sm:h-[50vh] md:h-[70vh]">
-        <div className="absolute w-full shadow-lg top-[20%] left-[0%] z-10 bg-white px-10 py-5 rounded-md text-center md:py-5 md:top-[35%] md:max-w-lg">
+    <div className="my-[5%] mx-[7%]">
+      <div className="grid grid-cols-1 md:grid-cols-5">
+        <div className=" z-10 bg-white p-5 shadow-lg rounded-md text-center md:col-start-1 md:col-end-4 md:row-start-1 md:row-end-2 md:self-center">
           <h1 className="text-4xl font-['Lobster'] text-gray-700 ">
             What I would like to say
           </h1>
@@ -17,11 +17,13 @@ const Message = () => {
           </p>
         </div>
 
-        <img
-          src={family3}
-          className="hidden rounded-md md:w-3/5 md:block"
-          alt="family3"
-        />
+        <div className="md:col-start-3  md:col-end-6 md:grid-rows-2 md:row-start-1 md:row-end-2">
+          <img
+            src={family3}
+            className="col-span-3 object-cover rounded-md"
+            alt="family3"
+          />
+        </div>
       </div>
     </div>
   );

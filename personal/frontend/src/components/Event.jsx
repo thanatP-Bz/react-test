@@ -10,7 +10,7 @@ const Event = () => {
         alt="event"
       />
       <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-      <div className="absolute top-[30%] left-[50%] -translate-x-[50%] text-white text-center xxs:top-[10%] xs:top-[20%] sm:top-[30%]  md:top-[40%]">
+      <div className="absolute top-[30%] left-[50%] -translate-x-[50%] text-white text-center xxs:top-[10%] xs:top-[20%] sm:top-[30%]  md:top-[35%]">
         <h1 className="text-4xl font-bold font-['Lobster']">
           The good memories events
         </h1>

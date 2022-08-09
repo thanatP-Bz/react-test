@@ -4,8 +4,8 @@ import kid2 from "../images/kid-2.jpg";
 
 const Showcase = () => {
   return (
-    <div>
-      <div className="mx-[7%] pt-[10%]">
+    <div className="bg-gray-100">
+      <div className="mx-[7%] pt-[10%] ">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="grid grid-cols-2 gap-2 h-4/5">
             <div>
