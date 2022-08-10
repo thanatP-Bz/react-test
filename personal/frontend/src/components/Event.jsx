@@ -3,7 +3,7 @@ import eventImg from "../images/event.jpg";
 
 const Event = () => {
   return (
-    <div className=" my-[10%] w-full h-[100vh] relative md:h-[85vh] lg:h-[85vh]">
+    <div className=" mb-[10%] w-full h-[100vh] relative md:h-[85vh] lg:h-[85vh]">
       <img
         className="w-full h-full object-cover object-top absolute inset-0"
         src={eventImg}

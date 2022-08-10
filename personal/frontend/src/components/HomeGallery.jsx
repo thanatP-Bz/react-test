@@ -10,7 +10,7 @@ import k8 from "../images/k-8.jpg";
 
 const HomeGallery = () => {
   return (
-    <div className="mx-[7%] my-[10%]">
+    <div className="mx-[7%] my-[5%]">
       <h1 className="text-5xl font font-['Lobster'] text-center py-4 mb-10">
         Galley
       </h1>

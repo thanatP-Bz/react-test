@@ -7,6 +7,8 @@ import Compliments from "../components/Compliments";
 import Event from "../components/Event";
 import Message from "../components/Message";
 import HomeGallery from "../components/HomeGallery";
+import Technology from "../components/Technology";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -19,6 +21,8 @@ const Home = () => {
       <Event />
       <Message />
       <HomeGallery />
+      <Technology />
+      <Footer />
     </div>
   );
 };

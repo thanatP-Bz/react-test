@@ -46,6 +46,15 @@
   .com-header-1 {
     @apply text-xl mt-2 text-gray-700;
   }
+
+  /* technology */
+  .tech-box {
+    @apply p-4 rounded-md shadow-lg items-center flex flex-col;
+  }
+
+  .tech-icon {
+    @apply text-[4rem];
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap");
