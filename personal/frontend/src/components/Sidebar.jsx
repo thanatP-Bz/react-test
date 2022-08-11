@@ -39,30 +39,30 @@ const Sidebar = () => {
         }  ease-in duration-300`}
       >
         <div className="mt-20 flex flex-col">
-          <button className="sidebar-btn">
-            <IoHome className="sidebar-icon" />
+          <Link to="/" className="link-btn">
+            <IoHome className="mr-3" />
             Home
-          </button>
-          <button className="sidebar-btn">
-            <AiFillPicture className="sidebar-icon" />
+          </Link>
+          <Link to="/" className="link-btn">
+            <AiFillPicture className="mr-3" />
             Galley
-          </button>
-          <button className="sidebar-btn">
-            <BsFillInfoCircleFill className="sidebar-icon" />
+          </Link>
+          <Link to="/" className="link-btn">
+            <BsFillInfoCircleFill className="mr-3" />
             About
-          </button>
-          <button className="sidebar-btn">
-            <RiLoginBoxFill className="sidebar-icon" />
+          </Link>
+          <Link to="/welcome" className="link-btn">
+            <RiLoginBoxFill className="mr-3" />
             Login
-          </button>
-          <button className="sidebar-btn">
-            <FaPenAlt className="sidebar-icon" />
-            Sign Up
-          </button>
-          <button className="sidebar-btn ">
-            <RiLogoutBoxFill className="sidebar-icon" />
-            Log Out
-          </button>
+          </Link>
+          <Link to="/welcome" className="link-btn">
+            <FaPenAlt className="mr-3" />
+            Signup
+          </Link>
+          <Link to="/" className="link-btn">
+            <RiLogoutBoxFill className="mr-3" />
+            Logout
+          </Link>
         </div>
       </div>
     </div>

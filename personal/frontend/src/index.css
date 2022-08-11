@@ -81,3 +81,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.link-btn {
+  background-color: rgb(74 222 128);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.1rem;
+  margin: 0.4rem 2.2rem;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  text-align: center;
+}
+
+.link-btn:hover {
+  background-color: rgb(15, 212, 146);
+}
