@@ -21,7 +21,7 @@
   }
 
   .form-btn {
-    @apply w-full bg-[#10ac84] mt-3 mb-2 text-white pt-2 rounded-md text-lg hover:bg-[#5ccaae];
+    @apply w-full bg-[#10ac84] mt-3 mb-2 text-white p-2 rounded-md text-lg hover:bg-[#5ccaae];
   }
 
   /* sidebar */

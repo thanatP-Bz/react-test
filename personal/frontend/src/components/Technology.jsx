@@ -13,7 +13,7 @@ const Technology = () => {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <button className="tech-box">
             <FaReact className="tech-icon text-[#61dbfd]" />
-            <h1 className="p-2">React.Jsx</h1>
+            <h1 className="p-2">React.Js</h1>
           </button>
           <button className="tech-box">
             <DiNodejsSmall className="tech-icon text-[#68a063]" />
