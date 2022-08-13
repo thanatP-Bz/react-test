@@ -24,6 +24,14 @@
     @apply w-full bg-[#10ac84] mt-3 mb-2 text-white p-2 rounded-md text-lg hover:bg-[#5ccaae];
   }
 
+  /* alert */
+  .alert-danger {
+    @apply w-full bg-red-300 my-3 py-2 rounded-md text-center text-white text-xl;
+  }
+
+  .alert-success {
+    @apply w-full bg-green-300 my-3 py-2 rounded-md text-center text-white text-xl;
+  }
   /* sidebar */
   .sidebar-btn {
     @apply bg-green-400 text-white py-1 mx-20 rounded-md text-lg hover:bg-[#5ccaae] hover:shadow-md mb-3 relative md:mx-10;
