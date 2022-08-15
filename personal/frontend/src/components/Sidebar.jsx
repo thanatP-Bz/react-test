@@ -51,11 +51,11 @@ const Sidebar = () => {
             <BsFillInfoCircleFill className="mr-3" />
             About
           </Link>
-          <Link to="/welcome" className="link-btn">
+          <Link to="/login" className="link-btn">
             <RiLoginBoxFill className="mr-3" />
             Login
           </Link>
-          <Link to="/welcome" className="link-btn">
+          <Link to="/signup" className="link-btn">
             <FaPenAlt className="mr-3" />
             Signup
           </Link>

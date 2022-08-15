@@ -14,15 +14,15 @@ const initialState = {
 const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const displayAlert = () => {
-    dispatch({ type: SHOW_ALERT });
-    clearAlert();
-  };
-
   const clearAlert = () => {
     setTimeout(() => {
       dispatch({ type: CLEAR_ALERT });
     }, 3000);
+  };
+
+  const displayAlert = () => {
+    dispatch({ type: SHOW_ALERT });
+    clearAlert();
   };
 
   return (

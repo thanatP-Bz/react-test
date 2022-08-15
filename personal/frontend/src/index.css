@@ -26,11 +26,11 @@
 
   /* alert */
   .alert-danger {
-    @apply w-full bg-red-300 my-3 py-2 rounded-md text-center text-white text-xl;
+    @apply w-full bg-red-100 border border-red-600 my-3 py-2 rounded-md text-center text-red-600 text-lg;
   }
 
   .alert-success {
-    @apply w-full bg-green-300 my-3 py-2 rounded-md text-center text-white text-xl;
+    @apply w-full bg-green-300 my-3 py-2 rounded-md text-center text-white text-lg;
   }
   /* sidebar */
   .sidebar-btn {

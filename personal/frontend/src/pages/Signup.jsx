@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import familyImg from "../images/family.jpg";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
@@ -11,13 +12,9 @@ const initialState = {
   isMember: false,
 };
 
-const Welcome = () => {
+const Signup = () => {
   const [values, setValues] = useState(initialState);
   const { isLoading, showAlert, displayAlert } = useAuthContext();
-
-  const toggleMember = () => {
-    setValues({ ...values, isMember: !values.isMember });
-  };
 
   const handlerChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -26,15 +23,14 @@ const Welcome = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    const { name, email, password, isMember } = values;
+    const { name, email, password } = values;
 
-    if (!name || !email || !password || (!isMember && !name)) {
+    if (!name || !email || !password) {
       displayAlert();
       return;
     }
     console.log(values);
   };
-
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-screen">
       <div className="sm:block hidden relative ">
@@ -57,16 +53,9 @@ const Welcome = () => {
 
       <div className="flex flex-col justify-center items-center mx-4 w-full md:mx-0">
         <form onSubmit={onSubmitHandler} className="form ">
-          <h3 className="form-h3">{values.isMember ? "Login" : "Sign Up"}</h3>
+          <h3 className="form-h3">Sign Up</h3>
           {showAlert && <Alert />}
-          {!values.isMember && (
-            <FormRow
-              type="name"
-              value={values.name}
-              name="name"
-              handlerChange={handlerChange}
-            />
-          )}
+
           <FormRow
             type="email"
             value={values.email}
@@ -86,15 +75,16 @@ const Welcome = () => {
 
           <div className="text-center mt-3">
             <p className="text-gray-600 text-sm">
-              {values.isMember ? "No a member yet ?" : "Already a member ?"}
-              <button
-                type="button"
-                disabled={isLoading}
-                onClick={toggleMember}
-                className="text-blue-600 pl-2"
-              >
-                {values.isMember ? "Sign Up" : "Login"}
-              </button>
+              Already a member ?
+              <Link to="/login">
+                <button
+                  type="button"
+                  disabled={isLoading}
+                  className="text-blue-600 pl-2"
+                >
+                  Login
+                </button>
+              </Link>
             </p>
           </div>
         </form>
@@ -103,4 +93,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Signup;
