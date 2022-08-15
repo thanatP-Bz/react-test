@@ -21,50 +21,23 @@ const Sidebar = () => {
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-white text-2xl top-5 right-10 fixed p-1 bg-green-400 rounded-md z-20"
+          className="text-white text-2xl p-1 bg-green-400 rounded-md z-20"
         >
           <MdOutlineNotes />
         </button>
       ) : (
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className=" fixed text-2xl top-5 right-10 text-white  bg-green-400 p-1 rounded-md z-20"
+          className=" text-2xl  text-white  bg-green-400 p-1 rounded-md z-20"
         >
           <MdOutlineClear />
         </button>
       )}
       <div
-        className={`top-0 right-0 fixed bg-slate-700 bg-opacity-60 w-[100vw] h-full z-10 md:w-[25vw] md:bg-opacity-50 ${
+        className={`top-[11%] right-0 fixed bg-slate-700 bg-opacity-60 w-[100vw] h-full z-10 md:w-[25vw] md:bg-opacity-50 ${
           isOpen ? " translate-x-0" : "translate-x-full"
         }  ease-in duration-300`}
-      >
-        <div className="mt-20 flex flex-col">
-          <Link to="/" className="link-btn">
-            <IoHome className="mr-3" />
-            Home
-          </Link>
-          <Link to="/" className="link-btn">
-            <AiFillPicture className="mr-3" />
-            Galley
-          </Link>
-          <Link to="/" className="link-btn">
-            <BsFillInfoCircleFill className="mr-3" />
-            About
-          </Link>
-          <Link to="/login" className="link-btn">
-            <RiLoginBoxFill className="mr-3" />
-            Login
-          </Link>
-          <Link to="/signup" className="link-btn">
-            <FaPenAlt className="mr-3" />
-            Signup
-          </Link>
-          <Link to="/" className="link-btn">
-            <RiLogoutBoxFill className="mr-3" />
-            Logout
-          </Link>
-        </div>
-      </div>
+      ></div>
     </div>
   );
 };

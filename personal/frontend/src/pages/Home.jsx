@@ -1,7 +1,6 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import Logo from "../components/Logo";
 import Showcase from "../components/Showcase";
 import Compliments from "../components/Compliments";
 import Event from "../components/Event";
@@ -13,8 +12,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div>
-      <Logo />
-      <Sidebar />
+      <Navbar />
       <Hero />
       <Showcase />
       <Compliments />

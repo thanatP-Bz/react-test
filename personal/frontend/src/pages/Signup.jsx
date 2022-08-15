@@ -57,6 +57,12 @@ const Signup = () => {
           {showAlert && <Alert />}
 
           <FormRow
+            type="name"
+            value={values.name}
+            name="name"
+            handlerChange={handlerChange}
+          />
+          <FormRow
             type="email"
             value={values.email}
             name="email"

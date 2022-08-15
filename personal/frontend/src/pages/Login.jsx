@@ -43,7 +43,7 @@ const Login = () => {
         <div className="absolute inset-0 bg-slate-900 bg-opacity-50"></div>
         <div className="absolute text-white text-center top-[30%] left-[50%] -translate-x-[50%] ">
           <h1 className="font-['Lobster'] my-4 text-4xl whitespace-nowrap">
-            Welcome to my Website
+            Welcome back!
           </h1>
           <p className="mt-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dicta

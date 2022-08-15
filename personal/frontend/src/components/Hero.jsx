@@ -3,7 +3,7 @@ import familyImg from "../images/family-2.jpg";
 
 const Hero = () => {
   return (
-    <div className=" w-full h-[100vh] relative overflow-hidden ">
+    <div className=" w-full h-[100vh] relative">
       <img
         src={familyImg}
         alt="family-2"
