@@ -1,5 +1,5 @@
 import express from "express";
-
+import "express-async-errors";
 //connect to DB
 import connectDB from "./database/connectDB.js";
 
@@ -18,9 +18,12 @@ app.use(express.json());
 
 app.use("/api/auth", userRoutes);
 
-app.get("/", (req, res) => {
-  res.send("hello server");
-});
+//error handler middleware
+import notFoundMiddleware from "./middleware/not-found-.js";
+import errorHandlerMiddleware from "./middleware/error-handler.js";
+
+app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 const PORT = process.env.PORT || 5000;
 

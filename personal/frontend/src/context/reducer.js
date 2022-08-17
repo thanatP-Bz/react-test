@@ -1,4 +1,9 @@
-import { SHOW_ALERT, CLEAR_ALERT } from "./action";
+import {
+  SHOW_ALERT,
+  CLEAR_ALERT,
+  SIGNUP_BEGIN,
+  SIGNUP_SUCCESS,
+} from "./action";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -16,6 +21,19 @@ const reducer = (state, action) => {
         alertText: "",
         alertType: "",
       };
+    case SIGNUP_BEGIN: {
+      return { ...state, isLoading: true };
+    }
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-success",
+        alertText: "Log in success redirecting...",
+        user: action.payload,
+      };
+
     default:
       throw new Error();
   }

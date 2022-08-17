@@ -4,6 +4,7 @@ import familyImg from "../images/family.jpg";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useSignup } from "../hooks/useSignup";
 
 const initialState = {
   name: "",
@@ -14,6 +15,7 @@ const initialState = {
 
 const Signup = () => {
   const [values, setValues] = useState(initialState);
+  const { signupHook } = useSignup();
   const { isLoading, showAlert, displayAlert } = useAuthContext();
 
   const handlerChange = (e) => {
@@ -24,13 +26,17 @@ const Signup = () => {
     e.preventDefault();
 
     const { name, email, password } = values;
-
     if (!name || !email || !password) {
+      setValues({ name: "", email: "", password: "" });
       displayAlert();
       return;
     }
-    console.log(values);
+
+    let currentUser = { name, email, password };
+    signupHook(currentUser);
+    setValues({ name: "", email: "", password: "" });
   };
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 w-full h-screen">
       <div className="sm:block hidden relative ">

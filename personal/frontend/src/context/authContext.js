@@ -9,6 +9,7 @@ const initialState = {
   showAlert: false,
   alertText: "",
   alertType: "",
+  user: null,
 };
 
 const AuthContextProvider = ({ children }) => {
@@ -26,7 +27,9 @@ const AuthContextProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch, displayAlert }}>
+    <AuthContext.Provider
+      value={{ ...state, dispatch, displayAlert, clearAlert }}
+    >
       {children}
     </AuthContext.Provider>
   );
