@@ -21,9 +21,7 @@ const errorHandlerMiddleware = (error, req, res, next) => {
     )} filed has to be unique`;
   }
 
-  res
-    .status(defaultError.statusCode)
-    .json({ msg: /* error */ defaultError.message });
+  res.status(defaultError.statusCode).json({ msg: defaultError.message });
 };
 
 export default errorHandlerMiddleware;

@@ -3,6 +3,7 @@ import {
   CLEAR_ALERT,
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
+  SIGNUP_ERROR,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -32,6 +33,14 @@ const reducer = (state, action) => {
         alertType: "alert-success",
         alertText: "Log in success redirecting...",
         user: action.payload,
+      };
+    case SIGNUP_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-danger",
+        alertText: action.payload.message,
       };
 
     default:

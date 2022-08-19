@@ -10,16 +10,17 @@ export const useSignup = () => {
 
     try {
       const response = await axios.post("/api/auth/signup", currentUser);
-      console.log(response.data);
-      dispatch({ type: SIGNUP_SUCCESS, payload: response.data });
+      let user = response.data;
+      dispatch({ type: SIGNUP_SUCCESS, payload: user });
 
       //set to local storage
+      localStorage.setItem("user", JSON.stringify(user));
     } catch (error) {
       console.log(error.response);
-      /*   dispatch({
+      dispatch({
         type: SIGNUP_ERROR,
-        payloa: { msg: error.response.data.msg },
-      }); */
+        payload: { message: error.response.data.msg },
+      });
     }
     clearAlert();
   };
