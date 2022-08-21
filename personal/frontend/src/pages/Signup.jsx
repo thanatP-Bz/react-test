@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Navigate } from "react-router-dom";
 import familyImg from "../images/family.jpg";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
@@ -16,11 +16,13 @@ const initialState = {
 const Signup = () => {
   const [values, setValues] = useState(initialState);
   const { signupHook } = useSignup();
-  const { isLoading, showAlert, displayAlert } = useAuthContext();
+  const { user, isLoading, showAlert, displayAlert } = useAuthContext();
 
   const handlerChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
+  console.log(user);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
