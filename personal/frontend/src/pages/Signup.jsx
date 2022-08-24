@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import familyImg from "../images/family.jpg";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
@@ -17,6 +17,15 @@ const Signup = () => {
   const [values, setValues] = useState(initialState);
   const { signupHook } = useSignup();
   const { user, isLoading, showAlert, displayAlert } = useAuthContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   const handlerChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

@@ -24,6 +24,7 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: [true, "please provide a password"],
+    select: true,
   },
 });
 
@@ -37,6 +38,12 @@ UserSchema.pre("save", async function (next) {
 //jsonwebtoken
 UserSchema.methods.createJWT = function (_id) {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "30d" });
+};
+
+//compare password
+UserSchema.methods.comparePassword = async function (cadidatePassword) {
+  const isMatch = await bcrypt.compare(cadidatePassword, this.password);
+  return isMatch;
 };
 
 export default mongoose.model("User", UserSchema);

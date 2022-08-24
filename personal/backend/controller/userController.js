@@ -1,6 +1,6 @@
 import User from "../models/userModel.js";
 import { StatusCodes } from "http-status-codes";
-import { BadRequestError } from "../error/index.js";
+import { BadRequestError, UnAuthenticatedError } from "../error/index.js";
 
 const signup = async (req, res) => {
   const { name, password, email } = req.body;
@@ -26,7 +26,24 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  res.send("login");
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    throw new BadRequestError("please provide all values");
+  }
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    throw new UnAuthenticatedError("Invalid credential");
+  }
+
+  const checkPassword = await user.comparePassword(password);
+  if (checkPassword) {
+    throw new UnAuthenticatedError("Invalid");
+  }
+
+  res.status(StatusCodes.OK).json({ token });
 };
 
 export { login, signup };
