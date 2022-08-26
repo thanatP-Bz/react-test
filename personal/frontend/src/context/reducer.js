@@ -4,6 +4,9 @@ import {
   SIGNUP_BEGIN,
   SIGNUP_SUCCESS,
   SIGNUP_ERROR,
+  LOGIN_BEGIN,
+  LOGIN_ERROR,
+  LOGIN_SUCCESS,
 } from "./action";
 
 const reducer = (state, action) => {
@@ -31,10 +34,31 @@ const reducer = (state, action) => {
         isLoading: false,
         showAlert: true,
         alertType: "alert-success",
-        alertText: "Log in success redirecting...",
-        user: action.payload,
+        alertText: "Sign up success redirecting...",
+        user: action.payload.user,
       };
     case SIGNUP_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-danger",
+        alertText: action.payload.message,
+      };
+    case LOGIN_BEGIN: {
+      return { ...state, isLoading: true };
+    }
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-success",
+        alertText: "Log in success redirecting...",
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    case LOGIN_ERROR:
       return {
         ...state,
         isLoading: false,

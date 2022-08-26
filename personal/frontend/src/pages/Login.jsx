@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import familyImg from "../images/family-5.jpg";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { useLogin } from "../hooks/useLogin";
 
 const initialState = {
   name: "",
@@ -14,7 +15,17 @@ const initialState = {
 
 const Login = () => {
   const [values, setValues] = useState(initialState);
-  const { isLoading, showAlert, displayAlert } = useAuthContext();
+  const { user, isLoading, showAlert, displayAlert } = useAuthContext();
+  const { loginHook } = useLogin();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (user) {
+        navigate("/");
+      }
+    }, 3000);
+  }, [user, navigate]);
 
   const handlerChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -23,13 +34,17 @@ const Login = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
 
-    const { name, email, password } = values;
+    const { email, password } = values;
 
-    if (!name || !email || !password) {
+    if (!email || !password) {
+      setValues({ email: "", password: "" });
       displayAlert();
       return;
     }
-    console.log(values);
+
+    let currentUser = { email, password };
+    loginHook(currentUser);
+    setValues({ email: "", password: "" });
   };
 
   return (
@@ -53,7 +68,7 @@ const Login = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center mx-4 w-full md:mx-0">
-        <form onSubmit={onSubmitHandler} className="form ">
+        <form onSubmit={onSubmitHandler} className="form">
           <h3 className="form-h3">Log in</h3>
           {showAlert && <Alert />}
 

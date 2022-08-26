@@ -22,7 +22,9 @@ const signup = async (req, res) => {
   //create jwt
   const token = user.createJWT(user._id);
 
-  res.status(StatusCodes.CREATED).json({ user, token });
+  res
+    .status(StatusCodes.CREATED)
+    .json({ user: { name: user.name, email: user.email }, token });
 };
 
 const login = async (req, res) => {
@@ -39,11 +41,19 @@ const login = async (req, res) => {
   }
 
   const checkPassword = await user.comparePassword(password);
-  if (checkPassword) {
-    throw new UnAuthenticatedError("Invalid");
+  if (!checkPassword) {
+    throw new UnAuthenticatedError("invalid credential");
   }
 
-  res.status(StatusCodes.OK).json({ token });
+  //create jwt
+  const token = user.createJWT(user._id);
+
+  res
+    .status(StatusCodes.OK)
+    .json({
+      user: { name: user.name, email: user.email, password: user.password },
+      token,
+    });
 };
 
 export { login, signup };

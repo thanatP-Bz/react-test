@@ -4,12 +4,16 @@ import reducer from "../context/reducer";
 
 const AuthContext = createContext();
 
+const user = localStorage.getItem("user");
+const token = localStorage.getItem("token");
+
 const initialState = {
   isLoading: false,
   showAlert: false,
   alertText: "",
   alertType: "",
-  user: null,
+  user: user ? JSON.parse(user) : null,
+  token: token,
 };
 
 const AuthContextProvider = ({ children }) => {
