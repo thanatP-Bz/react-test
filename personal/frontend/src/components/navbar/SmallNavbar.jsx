@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SmallNavbar = ({ isOpen }) => {
   return (
@@ -8,24 +9,30 @@ const SmallNavbar = ({ isOpen }) => {
       } duration-700 ease-out `}
     >
       <div className="flex flex-col items-center bg-gray-600 md:hidden">
-        <a
-          className=" text-white font-bold py-4 hover:bg-green-400 w-full text-center"
-          href="/home"
-        >
-          Home
-        </a>
-        <a
-          className=" text-white font-bold py-4 hover:bg-green-400 w-full text-center"
-          href="/Gallery"
-        >
-          Gallery
-        </a>
-        <a
-          className=" text-white font-bold py-4 hover:bg-green-400 w-full text-center"
-          href="/About"
-        >
-          About
-        </a>
+        <Link to="/">
+          <button
+            className=" text-white font-bold py-4 hover:text-green-400 text-center"
+            href="/home"
+          >
+            Home
+          </button>
+        </Link>
+        <Link to="/">
+          <button
+            className=" text-white font-bold py-4 hover:text-green-400  text-center"
+            href="/Gallery"
+          >
+            Gallery
+          </button>
+        </Link>
+        <Link to="/">
+          <button
+            className=" text-white font-bold py-4 hover:text-green-400 w-full text-center"
+            href="/About"
+          >
+            About
+          </button>
+        </Link>
       </div>
     </div>
   );

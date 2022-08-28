@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./logo/Logo";
 import SmallLogo from "./logo/SmallLogo";
 import SmallNavbar from "./navbar/SmallNavbar";
@@ -35,26 +36,31 @@ const Navbar = () => {
             <Logo />
 
             {/* menu link */}
-
             <div className="ml-10 mt-2 hidden space-x-4 md:block">
-              <a
-                className=" text-white font-bold hover:text-green-400"
-                href="/home"
-              >
-                Home
-              </a>
-              <a
-                className=" text-white font-bold hover:text-green-400"
-                href="/Gallery"
-              >
-                Gallery
-              </a>
-              <a
-                className=" text-white font-bold hover:text-green-400"
-                href="/About"
-              >
-                About
-              </a>
+              <Link to="/">
+                <button
+                  className=" text-white font-bold hover:text-green-400"
+                  href="/home"
+                >
+                  Home
+                </button>
+              </Link>
+              <Link to="/">
+                <button
+                  className=" text-white font-bold hover:text-green-400"
+                  href="/Gallery"
+                >
+                  Gallery
+                </button>
+              </Link>
+              <Link to="/">
+                <button
+                  className=" text-white font-bold hover:text-green-400"
+                  href="/About"
+                >
+                  About
+                </button>
+              </Link>
             </div>
           </div>
 

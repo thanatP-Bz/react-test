@@ -10,11 +10,12 @@ export const useSignup = () => {
 
     try {
       const response = await axios.post("/api/auth/signup", currentUser);
-      let { user } = response.data;
-      dispatch({ type: SIGNUP_SUCCESS, payload: user });
-      console.log(user);
+      let { user, token } = response.data;
+      dispatch({ type: SIGNUP_SUCCESS, payload: { user, token } });
+
       //set to local storage
       localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("token", token);
     } catch (error) {
       console.log(error.response);
       dispatch({

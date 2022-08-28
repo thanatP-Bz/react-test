@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const ProfileNav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
+  const { user } = useAuthContext();
 
   return (
     <div>
       <div className="flex">
         <p className="text-white font-sm mr-2 p-2 hidden md:flex">
-          bztzn512@gmail.com
+          {user.email}
         </p>
         <button
           onClick={() => setProfileOpen(!profileOpen)}
@@ -31,14 +34,14 @@ const ProfileNav = () => {
           !profileOpen ? "hidden" : "block"
         }`}
       >
-        <div className="flex flex-col py-2 px-7 text-center ">
-          <a href="/" className="py-1 hover:text-green-400">
-            Your Profile
-          </a>
+        <div className="flex flex-col py-2 px-7 text-center shadow-md">
+          <Link to="/profile">
+            <button className="py-1 hover:text-green-400">Your Profile</button>
+          </Link>
           <div className="bg-gray-900 w-full h-[0.5px]"></div>
-          <a href="/" className="py-1 hover:text-green-400">
-            Logout
-          </a>
+          <Link to="/">
+            <button className="py-1 hover:text-green-400">Logout</button>
+          </Link>
         </div>
       </div>
     </div>

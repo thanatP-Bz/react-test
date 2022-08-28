@@ -36,6 +36,7 @@ const reducer = (state, action) => {
         alertType: "alert-success",
         alertText: "Sign up success redirecting...",
         user: action.payload.user,
+        token: action.payload.token,
       };
     case SIGNUP_ERROR:
       return {

@@ -48,12 +48,10 @@ const login = async (req, res) => {
   //create jwt
   const token = user.createJWT(user._id);
 
-  res
-    .status(StatusCodes.OK)
-    .json({
-      user: { name: user.name, email: user.email, password: user.password },
-      token,
-    });
+  res.status(StatusCodes.OK).json({
+    user: { name: user.name, email: user.email },
+    token,
+  });
 };
 
 export { login, signup };
