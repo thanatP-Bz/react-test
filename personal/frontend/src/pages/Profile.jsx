@@ -6,7 +6,8 @@ import Alert from "../components/Alert";
 import Navbar from "../components/Navbar";
 
 const Profile = () => {
-  const { user, displayAlert, showAlert, isLoading } = useAuthContext();
+  const { user, displayAlert, showAlert, isLoading, updateUser } =
+    useAuthContext();
   const { updateHook } = useUpdate();
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
@@ -14,6 +15,9 @@ const Profile = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     displayAlert();
+
+    const currentUser = { name, email };
+    updateUser(currentUser);
   };
 
   return (
