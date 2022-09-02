@@ -3,7 +3,7 @@ import axios from "axios";
 import { LOGIN_BEGIN, LOGIN_SUCCESS, LOGIN_ERROR } from "../context/action";
 
 export const useLogin = () => {
-  const { dispatch, clearAlert } = useAuthContext();
+  const { dispatch, clearAlert, setToLocalStorage } = useAuthContext();
 
   const loginHook = async (currentUser) => {
     dispatch({ type: LOGIN_BEGIN });
@@ -14,8 +14,7 @@ export const useLogin = () => {
       dispatch({ type: LOGIN_SUCCESS, payload: { user, token } });
 
       //set to localstorage
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("token", token);
+      setToLocalStorage(user, token);
     } catch (error) {
       dispatch({
         type: LOGIN_ERROR,

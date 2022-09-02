@@ -7,7 +7,13 @@ import {
   LOGIN_BEGIN,
   LOGIN_ERROR,
   LOGIN_SUCCESS,
+  LOGOUT_USER,
+  UPDATE_BEGIN,
+  UPDATE_SUCCESS,
+  UPDATE_ERROR,
 } from "./action";
+
+import { initialState } from "./authContext";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -66,6 +72,33 @@ const reducer = (state, action) => {
         showAlert: true,
         alertType: "alert-danger",
         alertText: action.payload.message,
+      };
+    case UPDATE_BEGIN: {
+      return { ...state, isLoading: true };
+    }
+    case UPDATE_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-success",
+        alertText: "Update successfully!",
+        user: action.payload.user,
+        token: action.payload.token,
+      };
+    case UPDATE_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-danger",
+        alertText: action.payload.message,
+      };
+    case LOGOUT_USER:
+      return {
+        ...initialState,
+        user: null,
+        token: null,
       };
 
     default:

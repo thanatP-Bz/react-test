@@ -3,7 +3,7 @@ import axios from "axios";
 import { SIGNUP_SUCCESS, SIGNUP_ERROR, SIGNUP_BEGIN } from "../context/action";
 
 export const useSignup = () => {
-  const { dispatch, clearAlert } = useAuthContext();
+  const { dispatch, clearAlert, setToLocalStorage } = useAuthContext();
 
   const signupHook = async (currentUser) => {
     dispatch({ type: SIGNUP_BEGIN });
@@ -14,8 +14,7 @@ export const useSignup = () => {
       dispatch({ type: SIGNUP_SUCCESS, payload: { user, token } });
 
       //set to local storage
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("token", token);
+      setToLocalStorage(user, token);
     } catch (error) {
       console.log(error.response);
       dispatch({

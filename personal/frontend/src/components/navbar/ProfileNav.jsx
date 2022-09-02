@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useLogout } from "../../hooks/useLogout";
 
 const ProfileNav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const { user } = useAuthContext();
+  const { logoutHook } = useLogout();
+
+  const logoutHandler = () => {
+    logoutHook();
+  };
 
   return (
     <div>
@@ -40,7 +46,12 @@ const ProfileNav = () => {
           </Link>
           <div className="bg-gray-900 w-full h-[0.5px]"></div>
           <Link to="/">
-            <button className="py-1 hover:text-green-400">Logout</button>
+            <button
+              className="py-1 hover:text-green-400"
+              onClick={logoutHandler}
+            >
+              Logout
+            </button>
           </Link>
         </div>
       </div>

@@ -18,6 +18,16 @@ const initialState = {
 const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const setToLocalStorage = (user, token) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token);
+  };
+
+  const removeFromLocalStorage = (user, token) => {
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("token", token);
+  };
+
   const clearAlert = () => {
     setTimeout(() => {
       dispatch({ type: CLEAR_ALERT });
@@ -37,6 +47,8 @@ const AuthContextProvider = ({ children }) => {
         dispatch,
         displayAlert,
         clearAlert,
+        setToLocalStorage,
+        removeFromLocalStorage,
       }}
     >
       {children}
@@ -44,4 +56,4 @@ const AuthContextProvider = ({ children }) => {
   );
 };
 
-export { AuthContext, AuthContextProvider };
+export { AuthContext, initialState, AuthContextProvider };

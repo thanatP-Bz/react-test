@@ -9,6 +9,8 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_BEGIN = "LOGIN_BEGIN";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 
+export const LOGOUT_USER = "LOGOUT_USER";
+
 export const UPDATE_SUCCESS = "UPDATE_SUCCESS";
 export const UPDATE_BEGIN = "UPDATE_BEGIN";
 export const UPDATE_ERROR = "UPDATE_ERROR";
