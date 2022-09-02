@@ -9,7 +9,9 @@ const ProfileNav = () => {
   return (
     <div>
       <div className="flex">
-        <p className="text-white font-sm mr-2 p-2 hidden md:flex">email</p>
+        <p className="text-white font-sm mr-2 p-2 hidden md:flex">
+          {user ? user.email : "email"}
+        </p>
         <button
           onClick={() => setProfileOpen(!profileOpen)}
           type="button"

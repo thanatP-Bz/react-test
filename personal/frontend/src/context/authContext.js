@@ -1,8 +1,6 @@
 import { createContext, useReducer } from "react";
 import { SHOW_ALERT, CLEAR_ALERT } from "./action";
 import reducer from "../context/reducer";
-import axios from "axios";
-
 const AuthContext = createContext();
 
 const user = localStorage.getItem("user");
@@ -15,47 +13,10 @@ const initialState = {
   alertType: "",
   user: user ? JSON.parse(user) : null,
   token: token,
-  name: "ice",
 };
 
 const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  //axios
-  const authFetch = axios.create({
-    baseURL: "/api",
-  });
-
-  //requrest
-  authFetch.interceptors.request.use(
-    (config) => {
-      config.headers.common["Authorization"] = `Bearer ${state.token}`;
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
-
-  authFetch.interceptors.response.use(
-    (response) => {
-      return response;
-    },
-    (error) => {
-      console.log(error.response);
-      if (error.response.status === 401) {
-        console.log(`AUTH ERROR`);
-      }
-      return Promise.reject(error);
-    }
-  );
-
-  const updateUser = async (currentUser) => {
-    try {
-      const { data } = await authFetch.patch("/auth/updateuser", currentUser);
-      console.log(data);
-    } catch (error) {}
-  };
 
   const clearAlert = () => {
     setTimeout(() => {
@@ -72,11 +33,10 @@ const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         ...state,
+        state,
         dispatch,
         displayAlert,
         clearAlert,
-        updateUser,
-        authFetch,
       }}
     >
       {children}

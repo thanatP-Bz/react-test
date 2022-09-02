@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { useUpdate } from "../hooks/useUpdate";
+import { useUpdateUser } from "../hooks/useUpdateUser";
 import FormRow from "../components/FormRow";
 import Alert from "../components/Alert";
 import Navbar from "../components/Navbar";
 
 const Profile = () => {
-  const { user, displayAlert, showAlert, isLoading, updateUser } =
-    useAuthContext();
-  const { updateHook } = useUpdate();
+  const { user, displayAlert, showAlert, isLoading } = useAuthContext();
+  const { updateUserHook } = useUpdateUser();
+
   const [name, setName] = useState(user?.name);
   const [email, setEmail] = useState(user?.email);
 
@@ -17,7 +17,7 @@ const Profile = () => {
     displayAlert();
 
     const currentUser = { name, email };
-    updateUser(currentUser);
+    updateUserHook(currentUser);
   };
 
   return (

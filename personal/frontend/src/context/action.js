@@ -8,3 +8,7 @@ export const SIGNUP_ERROR = "SIGNUP_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_BEGIN = "LOGIN_BEGIN";
 export const LOGIN_ERROR = "LOGIN_ERROR";
+
+export const UPDATE_SUCCESS = "UPDATE_SUCCESS";
+export const UPDATE_BEGIN = "UPDATE_BEGIN";
+export const UPDATE_ERROR = "UPDATE_ERROR";
