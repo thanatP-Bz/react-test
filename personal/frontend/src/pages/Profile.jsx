@@ -14,7 +14,11 @@ const Profile = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    displayAlert();
+
+    if (!name || !email) {
+      displayAlert();
+      return;
+    }
 
     const currentUser = { name, email };
     updateUserHook(currentUser);
@@ -24,7 +28,7 @@ const Profile = () => {
     <>
       <Navbar />
       <div className="flex justify-center items-center h-screen">
-        <form onSubmit={onSubmitHandler} className="form mx-5 md:mx-0">
+        <form onSubmit={onSubmitHandler} className="form mx-5 md:mx-0 mt-16">
           <h1 className="text-center text-xl">Profile</h1>
           {showAlert && <Alert />}
           <FormRow
@@ -40,7 +44,7 @@ const Profile = () => {
             handlerChange={(e) => setEmail(e.target.value)}
           />
           <button disabled={isLoading} className="btn w-full">
-            save change
+            {isLoading ? "Please Wait..." : "Save Change"}
           </button>
         </form>
       </div>
