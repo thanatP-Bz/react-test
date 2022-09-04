@@ -1,11 +1,11 @@
 import React from "react";
-import familyImg from "../images/family-2.jpg";
+import happykids from "../images/happykids.jpg";
 
 const Hero = () => {
   return (
     <div className=" w-full h-[100vh] relative">
       <img
-        src={familyImg}
+        src={happykids}
         alt="family-2"
         className="w-full h-[100vh] object-cover absolute inset-0 "
       />
