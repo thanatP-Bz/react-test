@@ -10,26 +10,17 @@ const SmallNavbar = ({ isOpen }) => {
     >
       <div className="flex flex-col items-center bg-gray-600 md:hidden">
         <Link to="/">
-          <button
-            className=" text-white font-bold py-4 hover:text-green-400 text-center"
-            href="/home"
-          >
+          <button className=" text-white font-bold py-4 hover:text-green-400 text-center">
             Home
           </button>
         </Link>
-        <Link to="/">
-          <button
-            className=" text-white font-bold py-4 hover:text-green-400  text-center"
-            href="/Gallery"
-          >
+        <Link to="/gallery">
+          <button className=" text-white font-bold py-4 hover:text-green-400  text-center">
             Gallery
           </button>
         </Link>
-        <Link to="/">
-          <button
-            className=" text-white font-bold py-4 hover:text-green-400 w-full text-center"
-            href="/About"
-          >
+        <Link to="/about">
+          <button className=" text-white font-bold py-4 hover:text-green-400 w-full text-center">
             About
           </button>
         </Link>

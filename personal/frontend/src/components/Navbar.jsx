@@ -38,26 +38,17 @@ const Navbar = () => {
             {/* menu link */}
             <div className="ml-10 mt-2 hidden space-x-4 md:block">
               <Link to="/">
-                <button
-                  className=" text-white font-bold hover:text-green-400"
-                  href="/home"
-                >
+                <button className=" text-white font-bold hover:text-green-400">
                   Home
                 </button>
               </Link>
-              <Link to="/">
-                <button
-                  className=" text-white font-bold hover:text-green-400"
-                  href="/Gallery"
-                >
+              <Link to="/gallery">
+                <button className=" text-white font-bold hover:text-green-400">
                   Gallery
                 </button>
               </Link>
-              <Link to="/">
-                <button
-                  className=" text-white font-bold hover:text-green-400"
-                  href="/About"
-                >
+              <Link to="/about">
+                <button className=" text-white font-bold hover:text-green-400">
                   About
                 </button>
               </Link>

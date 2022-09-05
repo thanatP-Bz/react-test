@@ -24,8 +24,8 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const removeFromLocalStorage = (user, token) => {
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("token", token);
+    localStorage.removeItem("user", JSON.stringify(user));
+    localStorage.removeItem("token", token);
   };
 
   const clearAlert = () => {

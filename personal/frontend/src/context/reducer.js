@@ -11,6 +11,8 @@ import {
   UPDATE_BEGIN,
   UPDATE_SUCCESS,
   UPDATE_ERROR,
+  UPLOAD_SUCCESS,
+  UPLOAD_ERROR,
 } from "./action";
 
 import { initialState } from "./authContext";
@@ -99,6 +101,23 @@ const reducer = (state, action) => {
         ...initialState,
         user: null,
         token: null,
+      };
+    case UPLOAD_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: false,
+        alertType: "",
+        alertText: "",
+      };
+
+    case UPLOAD_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        showAlert: true,
+        alertType: "alert-danger",
+        alertText: "Please select an image file(png or jpeg)",
       };
 
     default:
