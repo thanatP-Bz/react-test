@@ -20,10 +20,23 @@ const UploadForm = () => {
     reader.onload = () => {
       setPreviewSource(reader.result);
     };
+
+    console.log(reader);
   };
 
   const handlerSubmit = (e) => {
     e.preventDefault();
+
+    if (!previewSource) return;
+
+    uploadImage(previewSource);
+  };
+
+  const uploadImage = (base64EncodedImage) => {
+    console.log(base64EncodedImage);
+
+    try {
+    } catch (error) {}
   };
 
   return (
@@ -34,10 +47,10 @@ const UploadForm = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
           voluptates rem quia qui, adipisci labore!
         </p>
-        <form className="" onSubmit={handlerSubmit}>
+        <form className="flex flex-col" onSubmit={handlerSubmit}>
           <input type="file" onChange={changeHandler} />
           {file && <div>{file.name}</div>}
-          <button className="" type="submit">
+          <button className="btn" type="submit">
             submit
           </button>
         </form>
