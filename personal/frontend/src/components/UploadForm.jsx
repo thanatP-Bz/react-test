@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
+import axios from "axios";
 
 const UploadForm = () => {
   const [file, setFile] = useState("");
@@ -32,10 +33,15 @@ const UploadForm = () => {
     uploadImage(previewSource);
   };
 
-  const uploadImage = (base64EncodedImage) => {
-    console.log(base64EncodedImage);
-
+  const uploadImage = async (base64EncodedImage) => {
     try {
+      const response = await axios.post(
+        "/api/upload/image",
+        base64EncodedImage
+      );
+
+      const { image } = response.data;
+      console.log(image);
     } catch (error) {}
   };
 
