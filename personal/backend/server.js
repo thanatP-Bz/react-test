@@ -10,7 +10,7 @@ dotenv.config();
 //user route
 import userRoutes from "./routes/userRoutes.js";
 //image route
-import imageRoute from "./routes/uploadRoute.js";
+import uploadRoute from "./routes/uploadRoute.js";
 
 //express app
 const app = express();
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 //routes
 app.use("/api/auth", userRoutes);
-app.use("/api/upload", imageRoute);
+app.use("/api/upload", uploadRoute);
 
 //error handler middleware
 import notFoundMiddleware from "./middleware/not-found-.js";

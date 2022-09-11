@@ -21,8 +21,6 @@ const UploadForm = () => {
     reader.onload = () => {
       setPreviewSource(reader.result);
     };
-
-    console.log(reader);
   };
 
   const handlerSubmit = (e) => {
@@ -33,16 +31,13 @@ const UploadForm = () => {
     uploadImage(previewSource);
   };
 
-  const uploadImage = async (base64EncodedImage) => {
+  const uploadImage = async (image) => {
     try {
-      const response = await axios.post(
-        "/api/upload/image",
-        base64EncodedImage
-      );
-
-      const { image } = response.data;
-      console.log(image);
-    } catch (error) {}
+      const response = await axios.post("/api/upload/image", { data: image });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
