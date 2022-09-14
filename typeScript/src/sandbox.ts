@@ -1,21 +1,13 @@
-let greet: Function;
-
-greet = () => {
-  console.log("hi");
+type Person = {
+  name: string;
+  age: number;
 };
 
-greet();
+let mike: Person;
 
-const add = (a: number, b: number, c?: number | string) => {
-  console.log(a + b);
+mike = {
+  name: "Mike",
+  age: 25,
 };
 
-add(4, 5);
-
-let sports: (a: string, b: string) => void;
-
-sports = (name: string, level: string) => {
-  console.log(`He is play${name} his level is ${level}`);
-};
-
-sports("football", "red");
+console.log(mike);
