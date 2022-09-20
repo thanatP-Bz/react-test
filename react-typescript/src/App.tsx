@@ -1,20 +1,7 @@
-import React, { useState } from "react";
-import Form from "./components/Form";
+import React from "react";
 
-const App: React.FC = () => {
-  const [input, setInput] = useState<string>("");
-
-  console.log(input);
-
-  const changeHandler = (e: React.FormEvent) => {
-    e.preventDefault();
-  };
-
-  return (
-    <div>
-      <Form input={input} setInput={setInput} />
-    </div>
-  );
+const App = () => {
+  return <div>App</div>;
 };
 
 export default App;
