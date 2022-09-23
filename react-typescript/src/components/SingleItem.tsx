@@ -8,6 +8,10 @@ interface Props {
 }
 
 const SingleItem: React.FC<Props> = ({ todo, todoList, setTodoList }) => {
+  const editItem = (id: number) => {
+    setTodoList();
+  };
+
   const deleteItem = (id: number) => {
     setTodoList(todoList.filter((todo) => todo.id !== id));
   };
