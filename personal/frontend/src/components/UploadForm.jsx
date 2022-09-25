@@ -42,7 +42,7 @@ const UploadForm = () => {
 
   return (
     <>
-      <div className="mt-[100px] flex flex-col justify-center items-center">
+      <div className="mt-[100px] flex flex-col justify-center items-center hidden">
         <h1 className="text-4xl font-bold my-4">My Pictures</h1>
         <p className="my-2">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum

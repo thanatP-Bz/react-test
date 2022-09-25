@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Todo } from "../models/model";
 
 interface Props {
@@ -8,19 +8,22 @@ interface Props {
 }
 
 const SingleItem: React.FC<Props> = ({ todo, todoList, setTodoList }) => {
-  const editItem = (id: number) => {
-    setTodoList();
+const [edit,setEdit] = useState<boolean>(false)
+const [editItem, setEditItem] = useState<string>(todo.todo)
+
+  const editItemHandler = (id: number) => {
+   
   };
 
-  const deleteItem = (id: number) => {
+  const deleteItemHandler = (id: number) => {
     setTodoList(todoList.filter((todo) => todo.id !== id));
   };
   return (
     <div>
       <div>{todo.todo}</div>
 
-      <button>edit</button>
-      <button onClick={() => deleteItem(todo.id)}>delete</button>
+      <button onClick={()=> editItemHandler()}>edit</button>
+      <button onClick={() => deleteItemHandler(todo.id)}>delete</button>
     </div>
   );
 };
