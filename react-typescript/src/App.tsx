@@ -1,10 +1,10 @@
 import React from "react";
-import List from "./List";
+import CheckUser from "./components/CheckUser";
 
 const App = () => {
   return (
     <div>
-      <List />
+      <CheckUser />
     </div>
   );
 };
