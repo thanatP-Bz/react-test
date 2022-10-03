@@ -9,6 +9,10 @@ const List: React.FC = () => {
     setName("");
   };
 
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
   return (
     <div>
       <h2>List</h2>
@@ -16,11 +20,7 @@ const List: React.FC = () => {
         return <li key={name}>{name}</li>;
       })}
 
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <input type="text" value={name} onChange={onChangeHandler} />
       <button onClick={addHandler}>add</button>
     </div>
   );
