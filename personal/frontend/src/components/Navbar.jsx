@@ -19,14 +19,14 @@ const Navbar = () => {
             {isOpen ? (
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white text-xl h-9 w-9 flex items-center justify-center  bg-green-400 rounded-md z-20 mr-4  md:hidden "
+                className="text-white text-xl h-9 w-9 flex items-center justify-center bg-[#10ac84] rounded-md z-20 mr-4  md:hidden "
               >
                 <MdOutlineClear />
               </button>
             ) : (
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-white text-xl h-9 w-9  flex items-center justify-center bg-green-400 rounded-md z-20 mr-4 md:hidden"
+                className="text-white text-xl h-9 w-9  flex items-center justify-center bg-[#10ac84]  rounded-md z-20 mr-4 md:hidden"
               >
                 <MdOutlineNotes />
               </button>

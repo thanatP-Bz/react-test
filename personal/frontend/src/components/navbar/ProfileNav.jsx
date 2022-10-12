@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useLogout } from "../../hooks/useLogout";
 
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+
 const ProfileNav = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const { user } = useAuthContext();
@@ -14,24 +16,12 @@ const ProfileNav = () => {
 
   return (
     <div>
-      <div className="flex">
-        <p className="text-white font-sm mr-2 p-2 hidden md:flex">
-          {user ? user.email : "email"}
+      <div className="flex py-[0.3px] px-3 rounded-md bg-[#10ac84]">
+        <p className="text-white font-sm mr-2 py-2 px-1 md:flex">
+          {user ? user.name : "email"}
         </p>
-        <button
-          onClick={() => setProfileOpen(!profileOpen)}
-          type="button"
-          className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white mr-2 md:mr-0"
-          id="user-menu-button"
-          aria-expanded="false"
-          aria-haspopup="true"
-        >
-          <span className="sr-only">Open user menu</span>
-          <img
-            className="w-8 h-8 md:h-10 md:w-10 rounded-full"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
-          />
+        <button className="mt-1" onClick={() => setProfileOpen(!profileOpen)}>
+          <IoIosArrowDropdownCircle className=" text-white text-2xl" />
         </button>
       </div>
 
