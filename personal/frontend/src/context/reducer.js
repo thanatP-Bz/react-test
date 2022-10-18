@@ -42,7 +42,7 @@ const reducer = (state, action) => {
         isLoading: false,
         showAlert: true,
         alertType: "alert-success",
-        alertText: "Sign up success redirecting...",
+        alertText: "Sign up successfully redirecting...",
         user: action.payload.user,
         token: action.payload.token,
       };
