@@ -1,5 +1,6 @@
 import React from "react";
 import happykids from "../images/happykids.jpg";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -10,7 +11,11 @@ const Hero = () => {
         className="w-full h-[100vh] object-cover absolute inset-0 "
       />
       <div className="absolute inset-0 bg-slate-900 bg-opacity-50"></div>
-      <div className="hero">
+      <motion.div
+        animate={{ y: 0, x: -300 }}
+        initial={{ y: 150 }}
+        className="hero"
+      >
         <h1 className="text-6xl text-white font-bold pb-2 font-['Lobster']">
           This is Homepage
         </h1>
@@ -20,7 +25,7 @@ const Hero = () => {
           consectetur adipisicing
         </p>
         <button className="btn">Read More</button>
-      </div>
+      </motion.div>
     </div>
   );
 };
