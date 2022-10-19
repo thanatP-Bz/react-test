@@ -12,8 +12,9 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-slate-900 bg-opacity-50"></div>
       <motion.div
-        animate={{ y: 0, x: -300 }}
-        initial={{ y: 150 }}
+        animate={{ x: -280 }}
+        initial={{ x: -500 }}
+        transition={{ ease: "easeOut", duration: 0.7 }}
         className="hero"
       >
         <h1 className="text-6xl text-white font-bold pb-2 font-['Lobster']">

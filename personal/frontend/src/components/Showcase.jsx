@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import kid1 from "../images/kid-1.jpg";
 import kid2 from "../images/kid-2.jpg";
 
@@ -7,7 +8,12 @@ const Showcase = () => {
     <div>
       <div className="mx-[7%] pt-[10%] ">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="grid grid-cols-2 gap-2 h-4/5">
+          <motion.div
+            initial={{ x: -500 }}
+            animate={{ x: 0 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="grid grid-cols-2 gap-2 h-4/5"
+          >
             <div>
               <img
                 className="h-full w-full object-cover rounded-md md:h-4/5"
@@ -22,9 +28,14 @@ const Showcase = () => {
                 alt="kid2"
               />
             </div>
-          </div>
+          </motion.div>
 
-          <div className="ml-5 text-center md:text-start">
+          <motion.div
+            initial={{ x: 500 }}
+            animate={{ x: 0 }}
+            transition={{ ease: "easeOut", duration: 1 }}
+            className="ml-5 text-center md:text-start"
+          >
             <h1 className="text-4xl font-bold font-['Lobster'] text-gray-700">
               It started in 2018
             </h1>
@@ -34,7 +45,7 @@ const Showcase = () => {
               molestias deleniti?
             </p>
             <button className="btn">Read More</button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
