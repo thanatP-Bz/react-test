@@ -12,8 +12,8 @@ const Hero = () => {
       />
       <div className="absolute inset-0 bg-slate-900 bg-opacity-50"></div>
       <motion.div
-        animate={{ x: -280 }}
-        initial={{ x: -500 }}
+        animate={{ top: 150 }}
+        initial={{ top: 500 }}
         transition={{ ease: "easeOut", duration: 0.7 }}
         className="hero"
       >

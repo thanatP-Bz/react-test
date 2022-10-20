@@ -42,10 +42,14 @@
   }
 
   /* hero */
-  .hero {
+  /*  .hero {
     @apply absolute top-[20%] left-[50%] -translate-x-[50%] h-full max-w-lg text-center md:max-w-xl md:left-[35%] md:top-[30%] md:text-start lg:left-[30%];
   }
+ */
 
+  .hero {
+    @apply absolute top-[40%] left-[50%] -translate-x-[50%] text-center;
+  }
   /* compliments */
   .com-icon {
     @apply mr-3 text-5xl text-white bg-[#10ac84] p-2 rounded-full;

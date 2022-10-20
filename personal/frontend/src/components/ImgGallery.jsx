@@ -24,11 +24,7 @@ const ImgGallery = () => {
         Galley
       </h1>
       <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        <div
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ ease: "easeOut", duration: 1 }}
-        >
+        <div>
           <button className="h-64 w-full">
             <img
               src={k1}
