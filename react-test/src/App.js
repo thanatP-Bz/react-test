@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion/dist/framer-motion";
 
 const App = () => {
-  const [rotate, setRotate] = useState(false);
+  const [name, setName] = useState("");
+  const [value, setValue] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <div className="container">
-      <motion.div
-        className="box"
-        animate={{ scale: rotate ? 1 : 0.5 }}
-        transition={{ ease: "easeIn", duration: 1 }}
-        onClick={() => setRotate(!rotate)}
-      ></motion.div>
-    </div>
+    <form onSubmit={submitHandler}>
+      <label>name</label>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button>submit</button>
+    </form>
   );
 };
 
