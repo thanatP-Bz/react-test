@@ -42,7 +42,7 @@ const login = async (req, res) => {
 
   const checkPassword = await user.comparePassword(password);
   if (!checkPassword) {
-    throw new UnAuthenticatedError("invalid credential");
+    throw new UnAuthenticatedError("wrong password please try again");
   }
 
   //create jwt
