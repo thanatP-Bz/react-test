@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="w-full h-screen bg-blue-200">
       <form onSubmit={submitHandler}>
         <label>task</label>
         <input
@@ -35,6 +35,17 @@ function App() {
         />
         <button type="submit">add</button>
       </form>
+
+      <div>
+        {item.map((item) => {
+          const { id, todo } = item;
+          return (
+            <ul key={id}>
+              <li>{todo}</li>
+            </ul>
+          );
+        })}
+      </div>
     </div>
   );
 }
