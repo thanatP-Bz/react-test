@@ -10,7 +10,7 @@ const Form: React.FC<Props> = ({ value, changeHandler, submitHandler }) => {
   return (
     <div>
       <form
-        className="flex flex-col bg-slate-50 w-full px-10 py-6 md:py-14 rounded-lg mb-6 shadow-lg"
+        className="flex flex-col bg-slate-50 w-full px-10 py-6 md:py-14 rounded-lg shadow-lg mb-3"
         onSubmit={submitHandler}
       >
         <div>
@@ -18,7 +18,7 @@ const Form: React.FC<Props> = ({ value, changeHandler, submitHandler }) => {
             My Todo list
           </h3>
           <input
-            className="shadow-md w-full p-3 rounded-lg text-lg"
+            className="shadow-md w-full p-3 rounded-lg text-lg focus:outline-blue-300 focus:outline-2 focus:shadow-none"
             type="text"
             value={value}
             placeholder="enter item"
@@ -26,7 +26,7 @@ const Form: React.FC<Props> = ({ value, changeHandler, submitHandler }) => {
           />
         </div>
         <button
-          className="mt-6 bg-gradient-to-r from-cyan-300 to-blue-300 flex items-center justify-center p-3 rounded-lg shadow-md text-white text-xl"
+          className="mt-6 bg-gradient-to-r from-cyan-300 to-blue-300 flex items-center justify-center p-3 rounded-lg shadow-md text-white text-xl hover:shadow-none"
           type="submit"
         >
           Add
