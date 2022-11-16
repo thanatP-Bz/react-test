@@ -11,7 +11,7 @@ function App() {
     e.preventDefault();
 
     if (value) {
-      setItem([...item, { id: Date.now(), todo: value }]);
+      setItem([...item, { id: Date.now(), todo: value, isDone: false }]);
     }
 
     setValue("");

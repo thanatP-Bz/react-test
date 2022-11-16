@@ -10,6 +10,14 @@ type Props = {
 };
 
 const SingleItem = ({ todo, item, setItem }: Props) => {
+  const isDoneHandler = (id: number) => {
+    setItem(
+      item.map((todo) => {
+        return todo.id === id ? { ...todo, isDone: !todo.isDone } : todo;
+      })
+    );
+  };
+
   return (
     <form className="bg-white w-full text-xl text-gray-700 shadow-lg rounded-lg px-8 py-3 md:p-5 mb-3 md:mb-6 flex justify-between">
       <div>
@@ -18,7 +26,12 @@ const SingleItem = ({ todo, item, setItem }: Props) => {
         </ul>
       </div>
       <div className="flex">
-        <span className="p-2 rounded-md text-blue-400 cursor-pointer">
+        <span
+          onClick={() => {
+            isDoneHandler(todo.id);
+          }}
+          className="p-2 rounded-md text-blue-400 cursor-pointer"
+        >
           <AiOutlineCheck />
         </span>
         <span className="p-2 rounded-md text-blue-400 cursor-pointer">
