@@ -22,8 +22,8 @@ function App() {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-r from-cyan-300 to-blue-300 flex overflow-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full md:mt-10 mt-6 mx-10 h-[500px]">
+    <div className="h-screen bg-gradient-to-r from-cyan-300 to-blue-300 overflow-auto flex">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full md:mt-10 mt-6 mx-10 h-[300px]">
         <div>
           <Form
             value={value}

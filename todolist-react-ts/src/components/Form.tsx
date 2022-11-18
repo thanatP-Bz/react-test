@@ -10,11 +10,11 @@ const Form: React.FC<Props> = ({ value, changeHandler, submitHandler }) => {
   return (
     <div>
       <form
-        className="flex flex-col bg-slate-50 w-full px-10 py-6 md:py-14 rounded-lg shadow-lg mb-3"
+        className="flex flex-col bg-slate-50 w-full px-10 py-6 md:py-6 rounded-lg shadow-lg mb-3"
         onSubmit={submitHandler}
       >
         <div>
-          <h3 className="text-gray-500 p-2 mb-6 text-2xl text-center bolded">
+          <h3 className="text-gray-500 p-2 mb-3 text-2xl text-center bolded">
             My Todo list
           </h3>
           <input
