@@ -23,8 +23,8 @@ function App() {
 
   return (
     <div className="h-screen bg-gradient-to-r from-cyan-300 to-blue-300 overflow-auto flex">
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full md:mt-10 mt-6 mx-10 h-[300px]">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full md:mt-10 mt-2 mx-10 h-[200px]">
+        <div className="w-full max-w-[500px] mx-auto">
           <Form
             value={value}
             changeHandler={changeHandler}
