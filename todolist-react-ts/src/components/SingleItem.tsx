@@ -45,7 +45,7 @@ const SingleItem = ({ todo, item, setItem }: Props) => {
       <div className="flex justify-between">
         {edit ? (
           <input
-            className="shadow-md p-2 rounded-lg text-lg focus:outline-blue-300 focus:outline-2 focus:shadow-none"
+            className="shadow-md p-2 rounded-lg text-lg w-full  max-w-[150px] md:max-w-[300px] focus:outline-blue-300 focus:outline-2 focus:shadow-none"
             placeholder="edit"
             type="text"
             value={editTodo}
