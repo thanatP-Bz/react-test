@@ -23,7 +23,7 @@ const Form: React.FC<Props> = ({ value, changeHandler, submitHandler }) => {
           />
         </div>
         <button
-          className="mt-6 bg-gradient-to-r from-cyan-300 to-blue-300 flex items-center justify-center p-1 rounded-lg shadow-md text-white text-xl hover:shadow-none"
+          className="mt-6 main-color flex items-center justify-center p-1 rounded-lg shadow-md text-white text-xl hover:shadow-none"
           type="submit"
         >
           Add

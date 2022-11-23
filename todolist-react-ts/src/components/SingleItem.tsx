@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Todo } from "../components/Todo";
 import { AiOutlineCheck } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import { BsTrashFill } from "react-icons/bs";
+
+const getLocalStorage = () => {
+  let list = localStorage.getItem("item") || "";
+  if (list) {
+    JSON.parse(localStorage.getItem("item") || "");
+  }
+  return [];
+};
 
 type Props = {
   todo: Todo;
@@ -13,6 +21,12 @@ type Props = {
 const SingleItem = ({ todo, item, setItem }: Props) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
+
+  if (item) {
+    JSON.parse(localStorage.getItem("item") || "");
+  } else {
+    return [];
+  }
 
   const isDoneHandler = (id: number) => {
     setItem(
@@ -32,8 +46,13 @@ const SingleItem = ({ todo, item, setItem }: Props) => {
     setItem(
       item.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
     );
+
     setEdit(false);
   };
+
+  useEffect(() => {
+    localStorage.setItem("item", JSON.stringify(item));
+  }, [item]);
 
   return (
     <form
