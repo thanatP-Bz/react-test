@@ -4,9 +4,9 @@ import ItemList from "../src/components/ItemList";
 import { Todo } from "../src/components/Todo";
 
 const getLocalStorage = () => {
-  let list = localStorage.getItem("item") || "";
+  let list = localStorage.getItem("item");
   if (list) {
-    JSON.parse(localStorage.getItem("item") || "");
+    return JSON.parse(localStorage.getItem("item") || "");
   }
   return [];
 };

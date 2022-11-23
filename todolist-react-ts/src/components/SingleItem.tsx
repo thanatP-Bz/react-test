@@ -4,14 +4,6 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import { BsTrashFill } from "react-icons/bs";
 
-const getLocalStorage = () => {
-  let list = localStorage.getItem("item") || "";
-  if (list) {
-    JSON.parse(localStorage.getItem("item") || "");
-  }
-  return [];
-};
-
 type Props = {
   todo: Todo;
   item: Todo[];
@@ -21,12 +13,6 @@ type Props = {
 const SingleItem = ({ todo, item, setItem }: Props) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
-
-  if (item) {
-    JSON.parse(localStorage.getItem("item") || "");
-  } else {
-    return [];
-  }
 
   const isDoneHandler = (id: number) => {
     setItem(
