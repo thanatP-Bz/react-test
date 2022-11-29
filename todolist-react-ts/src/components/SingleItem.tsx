@@ -36,9 +36,9 @@ const SingleItem = ({ todo, item, setItem }: Props) => {
     setEdit(false);
   };
 
-  useEffect(() => {
+  /*   useEffect(() => {
     localStorage.setItem("item", JSON.stringify(item));
-  }, [item]);
+  }, [item]); */
 
   return (
     <form
