@@ -1,16 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+const post = [
+  {
+    id: 1,
+    text: "test",
+  },
+  {
+    id: 2,
+    text: "test3",
+  },
+];
 function App() {
   const [value, setValue] = useState("");
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState(post);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`http://localhost:4000/api/v2/`);
+
+      const json = await response.json();
+
+      setItem();
+    };
+
+    fetchData();
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    if (value) {
-      setItem([...item, { id: new Date(), content: value }]);
-      setValue("");
-    }
   };
 
   return (
@@ -26,13 +43,10 @@ function App() {
       </form>
 
       <div>
-        {item.map((post) => {
-          return (
-            <div key={post.id}>
-              <h4>{post.content}</h4>
-            </div>
-          );
-        })}
+        {item &&
+          item.map((post) => {
+            return <ul key={post.id}>{post.text}</ul>;
+          })}
       </div>
     </>
   );
