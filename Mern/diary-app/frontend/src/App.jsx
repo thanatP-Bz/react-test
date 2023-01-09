@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
 
-const post = [
-  {
-    id: 1,
-    text: "test",
-  },
-  {
-    id: 2,
-    text: "test3",
-  },
-];
 function App() {
   const [value, setValue] = useState("");
-  const [item, setItem] = useState(post);
+  const [item, setItem] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`http://localhost:4000/api/v2/`);
 
       const json = await response.json();
-
-      setItem();
+      setItem(json);
     };
+    console.log(item);
 
     fetchData();
   }, []);
@@ -43,10 +33,9 @@ function App() {
       </form>
 
       <div>
-        {item &&
-          item.map((post) => {
-            return <ul key={post.id}>{post.text}</ul>;
-          })}
+        {item.map((pst) => {
+          return <div key={pst._id}>{pst.post}</div>;
+        })}
       </div>
     </>
   );
