@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { Post } from "./components/post";
+import PostBox from "./components/PostBox";
 
 const App = () => {
   const [value, setValue] = useState<string>("");
-  const [post, setPost] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (value) {
-      setPost([...post, { _id: Math.random(), post: value }]);
+      setPosts([...posts, { _id: Math.random(), post: value }]);
       setValue("");
     }
   };
-
-  console.log(post);
 
   return (
     <>
@@ -33,9 +32,7 @@ const App = () => {
       </form>
 
       <div>
-        {post.map((item) => {
-          return <div key={item._id}>{item.post}</div>;
-        })}
+        <PostBox posts={posts} setPosts={setPosts} />
       </div>
     </>
   );
