@@ -18,7 +18,6 @@ const PostBox: React.FC<Props> = ({ posts, setPosts }) => {
             posts={posts}
             setPosts={setPosts}
           />
-          /* <div>{item.post}</div> */
         );
       })}
     </div>
