@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Post } from "./post";
-import { formatDistance, subDays } from "date-fns";
+import axios from "axios";
 
 interface Props {
   item: Post;
@@ -10,6 +10,7 @@ interface Props {
 
 const SinglePost: React.FC<Props> = ({ item, posts, setPosts }) => {
   const [edit, setEdit] = useState<boolean>(false);
+  const [time, setTime] = useState<string>("");
   const [editPost, setEditPost] = useState<string>(item.post);
 
   useEffect(() => {
@@ -27,10 +28,14 @@ const SinglePost: React.FC<Props> = ({ item, posts, setPosts }) => {
     setEdit(false);
   };
 
-  console.log(posts);
+  const deleteHandler = async (id: number) => {
+    const response = await axios.delete(
+      `http://localhost:5000/api/v1/diary/delete/${id}`
+    );
 
-  const deleteHandler = (id: number) => {
-    setPosts(posts.filter((item) => item._id !== id));
+    const data = response.data;
+
+    setPosts(posts.filter((item) => item._id !== data._id));
 
     localStorage.removeItem("post");
   };
@@ -40,18 +45,15 @@ const SinglePost: React.FC<Props> = ({ item, posts, setPosts }) => {
       className="bg-white mb-4 max-w-2xl w-screen mx-auto rounded-md"
       onSubmit={(e) => submitHandler(e, item._id)}
     >
-      <h3 className="p-3">
-        {formatDistance(subDays(new Date(), 3), new Date(), {
-          addSuffix: true,
-        })}
-      </h3>
+      <h3 className="p-3"></h3>
       <div className="bg-gray-200 h-[1px] max-w-4xl mx-3"></div>
       {edit ? (
-        <input
-          placeholder={item.post}
+        <textarea
+          className="focus:shadow-soft-primary-outline mt-4 min-h-unset text-sm leading-5.6 ease-soft block h-auto w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-3 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none"
+          placeholder={editPost}
           value={editPost}
           onChange={(e) => setEditPost(e.target.value)}
-        />
+        ></textarea>
       ) : (
         <h3 className="p-4">{item.post}</h3>
       )}

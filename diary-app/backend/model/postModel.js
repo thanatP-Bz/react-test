@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const PostSchema = new Schema(
   {
-    todo: String,
+    post: String,
   },
   { timestamps: true }
 );

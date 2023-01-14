@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Post } from "./components/post";
 import PostBox from "./components/PostBox";
+import axios from "axios";
 
 const getLocalstorage = () => {
   let post = localStorage.getItem("post");
@@ -15,11 +16,34 @@ const App = () => {
   const [value, setValue] = useState<string>("");
   const [posts, setPosts] = useState<Post[]>(getLocalstorage);
 
-  const submitHandler = (e: React.FormEvent) => {
+  useEffect(() => {
+    const getData = async () => {
+      const response = await axios.get("http://localhost:5000/api/v1/diary/");
+
+      const data = response.data;
+
+      if (response) {
+        setPosts(data);
+      }
+    };
+    getData();
+  }, []);
+
+  const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (value) {
-      setPosts([...posts, { _id: Date.now(), post: value }]);
+    const response = await axios.post(
+      "http://localhost:5000/api/v1/diary/create",
+      {
+        post: value,
+      }
+    );
+
+    const data = response.data;
+    console.log(data);
+
+    if (response) {
+      setPosts((prev) => [...prev, data]);
       setValue("");
     }
   };
@@ -38,7 +62,7 @@ const App = () => {
               placeholder="Write your thoughts here..."
               value={value}
               onChange={(e) => setValue(e.target.value)}
-            />
+            ></textarea>
             <div className="mt-2 flex w-full justify-end ">
               <button
                 type="submit"
@@ -48,6 +72,7 @@ const App = () => {
               </button>
             </div>
           </form>
+
           <div className="flex justify-center items-center mt-2">
             <PostBox posts={posts} setPosts={setPosts} />
           </div>
