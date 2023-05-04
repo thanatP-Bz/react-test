@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { Action } from "redux";
 
 type stateType = {
   _id: number;
@@ -6,34 +7,16 @@ type stateType = {
   amount: number;
 };
 
-const initialState = {
+type initialStateType = {
+  transactions: stateType[];
+};
+
+const initialState: initialStateType = {
   transactions: [{ _id: 1, text: "glass", amount: 34 }],
 };
 
-type Action =
-  | { type: "DELETE_TRANSACTION"; payload: number }
-  | {
-      type: "ADD_TRANSACTION";
-      payload: { _id: number; text: string; amount: number };
-    };
-
-const reducer = (
-  state: typeof initialState,
-  action: Action
-): typeof initialState => {
+const reducer = (state: typeof initialState, action: Action) => {
   switch (action.type) {
-    case "DELETE_TRANSACTION":
-      return {
-        ...state,
-        transactions: state.transactions.filter(
-          (transaction) => transaction._id !== action.payload
-        ),
-      };
-    case "ADD_TRANSACTION":
-      return {
-        ...state,
-        transactions: [...state.transactions, action.payload],
-      };
     default:
       return state;
   }
@@ -43,14 +26,14 @@ type UseContextProviderType = {
   children: React.ReactNode;
 };
 
-export const UseAppContext = createContext(initialState);
+const AppContext = createContext(initialState);
 
-export const AppContextProvider = ({ children }: UseContextProviderType) => {
+const AppContextProvider = ({ children }: UseContextProviderType) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <UseAppContext.Provider value={{ ...state }}>
-      {children}
-    </UseAppContext.Provider>
+    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
   );
 };
+
+export { AppContext, AppContextProvider };

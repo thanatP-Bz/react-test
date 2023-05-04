@@ -4,8 +4,6 @@ const AddTransition = () => {
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
 
-  console.log(text);
-
   return (
     <>
       <h3>Add new transaction</h3>
