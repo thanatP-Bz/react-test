@@ -1,32 +1,17 @@
-import { createContext, useReducer } from "react";
-import { Action } from "redux";
+import { createContext, useReducer, ReactNode, Dispatch } from "react";
+import { initialState } from "./InitialState";
+import { stateType } from "../Expense";
+import { reducer } from "./reducer";
+import { Actions } from "./action";
 
-type stateType = {
-  _id: number;
-  text: string;
-  amount: number;
-};
-
-type initialStateType = {
+export type initialStateType = {
   transactions: stateType[];
-};
-
-const initialState: initialStateType = {
-  transactions: [
-    { _id: 1, text: "glass", amount: 34 },
-    { _id: 2, text: "snack", amount: 20 },
-  ],
-};
-
-const reducer = (state: typeof initialState, action: Action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
+  dispatch: Dispatch<Actions>;
+  deleteTransaction: (id: number) => void;
 };
 
 type UseContextProviderType = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const AppContext = createContext(initialState);
@@ -34,8 +19,14 @@ const AppContext = createContext(initialState);
 const AppContextProvider = ({ children }: UseContextProviderType) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  function deleteTransaction(id: number) {
+    dispatch({ type: "DELETE_TRANSACTION", payload: id });
+  }
+
   return (
-    <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ ...state, dispatch, deleteTransaction }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 

@@ -1,8 +1,8 @@
-import { UseAppcontext } from "../hooks/UseAppContext";
+import { UseAppContext } from "../hooks/UseAppContext";
 import Transition from "./Transition";
 
 const TransactionList = () => {
-  const { transactions } = UseAppcontext();
+  const { transactions } = UseAppContext();
 
   return (
     <>

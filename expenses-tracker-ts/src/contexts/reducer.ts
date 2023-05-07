@@ -1,6 +1,9 @@
-/* const reducer = (
+import { Actions } from "./action";
+import { initialState } from "./InitialState";
+
+export const reducer = (
   state: typeof initialState,
-  action: Action
+  action: Actions
 ): typeof initialState => {
   switch (action.type) {
     case "DELETE_TRANSACTION":
@@ -13,10 +16,9 @@
     case "ADD_TRANSACTION":
       return {
         ...state,
-        transactions: [...state.transactions, action.payload],
+        transactions: [],
       };
     default:
       return state;
   }
 };
- */

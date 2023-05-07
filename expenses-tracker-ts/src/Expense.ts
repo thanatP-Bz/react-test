@@ -1,5 +1,5 @@
-export interface Expense {
+export type stateType = {
   _id: number;
   text: string;
   amount: number;
-}
+};

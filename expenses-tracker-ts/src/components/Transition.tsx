@@ -1,3 +1,5 @@
+import { UseAppContext } from "../hooks/UseAppContext";
+
 interface TransactionProps {
   transaction: {
     _id: number;
@@ -7,12 +9,22 @@ interface TransactionProps {
 }
 
 const Transition = ({ transaction }: TransactionProps) => {
+  const { deleteTransaction } = UseAppContext();
+
+  const sign = transaction.amount < 0 ? "-" : "+";
+
   return (
     <>
-      <li className="minus">
+      <li className={transaction.amount < 0 ? "minus" : "plus"}>
         {transaction.text}
-        <span>-${transaction.amount}</span>
-        <button type="submit" className="delete-btn">
+        <span>
+          {sign}${Math.abs(transaction.amount)}
+        </span>
+        <button
+          type="submit"
+          className="delete-btn"
+          onClick={() => deleteTransaction(transaction._id)}
+        >
           x
         </button>
       </li>
