@@ -16,7 +16,7 @@ export const reducer = (
     case "ADD_TRANSACTION":
       return {
         ...state,
-        transactions: [],
+        transactions: [...state.transactions, action.payload],
       };
     default:
       return state;

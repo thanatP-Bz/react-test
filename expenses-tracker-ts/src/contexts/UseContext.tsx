@@ -8,6 +8,7 @@ export type initialStateType = {
   transactions: stateType[];
   dispatch: Dispatch<Actions>;
   deleteTransaction: (id: number) => void;
+  AddTransaction: (_id: number, text: string, amount: number) => void;
 };
 
 type UseContextProviderType = {
@@ -23,8 +24,14 @@ const AppContextProvider = ({ children }: UseContextProviderType) => {
     dispatch({ type: "DELETE_TRANSACTION", payload: id });
   }
 
+  function AddTransaction(_id: number, text: string, amount: number) {
+    dispatch({ type: "ADD_TRANSACTION", payload: { _id, text, amount } });
+  }
+
   return (
-    <AppContext.Provider value={{ ...state, dispatch, deleteTransaction }}>
+    <AppContext.Provider
+      value={{ ...state, dispatch, deleteTransaction, AddTransaction }}
+    >
       {children}
     </AppContext.Provider>
   );
