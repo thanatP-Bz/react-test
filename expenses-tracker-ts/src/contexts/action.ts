@@ -1,4 +1,4 @@
-import { stateType } from "../Expense";
+import { stateType } from "../stateType";
 
 export type Actions =
   | { type: "DELETE_TRANSACTION"; payload: number }
