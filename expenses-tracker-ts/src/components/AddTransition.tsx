@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { UseAppContext } from "../hooks/UseAppContext";
+import { AddTransactionHook } from "../hooks/AddTransactionHook";
 
 const AddTransition = () => {
   const [text, setText] = useState<string>("");
   const [amount, setAmount] = useState<number | string>(0);
 
-  const { AddTransaction } = UseAppContext();
+  const { addTransaction } = AddTransactionHook();
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
     const id = Math.random();
 
-    AddTransaction(id, text, +amount);
+    addTransaction(id, text, +amount);
 
     setAmount(0);
     setText("");

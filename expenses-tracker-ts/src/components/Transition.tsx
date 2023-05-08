@@ -1,4 +1,4 @@
-import { UseAppContext } from "../hooks/UseAppContext";
+import { DeleteTransactionHook } from "../hooks/DeleteTransactionHook";
 
 interface TransactionProps {
   transaction: {
@@ -9,7 +9,7 @@ interface TransactionProps {
 }
 
 const Transition = ({ transaction }: TransactionProps) => {
-  const { deleteTransaction } = UseAppContext();
+  const { deleteTransaction } = DeleteTransactionHook();
 
   const sign = transaction.amount < 0 ? "-" : "+";
 

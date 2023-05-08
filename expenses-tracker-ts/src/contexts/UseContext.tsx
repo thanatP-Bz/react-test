@@ -11,18 +11,8 @@ type UseContextProviderType = {
 const AppContextProvider = ({ children }: UseContextProviderType) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  function deleteTransaction(id: number) {
-    dispatch({ type: "DELETE_TRANSACTION", payload: id });
-  }
-
-  function AddTransaction(_id: number, text: string, amount: number) {
-    dispatch({ type: "ADD_TRANSACTION", payload: { _id, text, amount } });
-  }
-
   return (
-    <AppContext.Provider
-      value={{ ...state, dispatch, deleteTransaction, AddTransaction }}
-    >
+    <AppContext.Provider value={{ ...state, dispatch }}>
       {children}
     </AppContext.Provider>
   );
