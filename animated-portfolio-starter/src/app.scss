@@ -27,6 +27,19 @@ section {
   overflow: hidden;
 }
 
+.course {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
+
 @mixin mobile {
   @media (max-width: 738px) {
     @content;

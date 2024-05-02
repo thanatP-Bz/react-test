@@ -1,19 +1,22 @@
 import "./app.scss";
+
 import Navbar from "./components/navbar/Navbar";
+import Test from "./test/Test";
 const App = () => {
   return (
     <div>
-      <section>
+      {/*      <section>
         <Navbar />
-        {/* sidebar */}
+       
       </section>
-      <section>Parallax</section>
+       <section>Parallax</section>
       <section>Services</section>
       <section>Parallex</section>
       <section>Portfolio1</section>
       <section>Portfolio2</section>
       <section>Portfolio3</section>
-      <section>Contact</section>
+      <section>Contact</section> */}
+      <Test />
     </div>
   );
 };
