@@ -1,0 +1,26 @@
+.navbar {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+
+    .logo {
+      cursor: pointer;
+    }
+
+    .socials {
+      font-size: 1.5rem;
+      display: flex;
+      gap: 1.2rem;
+      cursor: pointer;
+    }
+  }
+}

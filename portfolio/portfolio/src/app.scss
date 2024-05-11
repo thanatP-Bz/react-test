@@ -1,0 +1,29 @@
+:root {
+  font-family: "Satisfy", cursive;
+  --clr-primary-1: #0c0c1d;
+  --clr-primary-2: #65a9a6;
+  --clr-primary-3: #ececeb;
+  --clr-primary-3: #3b707d;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-primary-1);
+  color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: center;
+}
