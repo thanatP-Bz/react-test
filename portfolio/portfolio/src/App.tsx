@@ -1,12 +1,13 @@
 import "./app.scss";
 import Navbar from "./navbar/Navbar";
+import Hero from "./hero/Hero";
 
 const App = () => {
   return (
     <div>
       <section>
         <Navbar />
-        {/* hero */}
+        <Hero />
       </section>
       <section>about me</section>
       <section>works</section>
