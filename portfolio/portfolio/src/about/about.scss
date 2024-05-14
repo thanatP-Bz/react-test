@@ -10,19 +10,25 @@
 
 .about-content-container {
   padding: 10px;
-  max-width: 45%;
+  max-width: 65%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+
+  .about-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
 
   h1 {
     font-size: 70px;
-    position: absolute;
-    top: 15%;
-    left: 40%;
-    transform: translate(-20%, -40%);
+  }
+
+  .about-underline {
+    height: 5px;
+    background-color: rgb(221, 162, 91);
   }
 
   p {
@@ -37,7 +43,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 30%;
   margin-top: 2rem;
   img {
     width: 100%;

@@ -9,19 +9,18 @@ const About = () => {
       </div>
 
       <div className="about-content-container">
-        <h1>ABOUT ME</h1>
-        <div className="text-wrapper">
+        <div className="about-content-wrapper">
+          <h1>ABOUT ME</h1>
+          <div className="about-underline"></div>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
             sequi dolorum consequatur a totam maxime nam possimus perspiciatis
             harum explicabo alias saepe laboriosam, nobis aliquam, inventore
-            dolorem, qui corporis expedita.
-          </p>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
-            sequi dolorum consequatur a totam maxime nam possimus perspiciatis
-            harum explicabo alias saepe laboriosam, nobis aliquam, inventore
-            dolorem, qui corporis expedita.
+            dolorem, qui corporis expedita. Lorem ipsum dolor, sit amet
+            <br />
+            consectetur adipisicing elit. Quaerat sequi dolorum consequatur a
+            totam maxime nam possimus perspiciatis harum explicabo alias saepe
+            laboriosam, nobis aliquam, inventore dolorem, qui corporis expedita.
           </p>
         </div>
       </div>
