@@ -10,7 +10,7 @@ const About = () => {
 
       <div className="about-content-container">
         <div className="about-content-wrapper">
-          <h1>ABOUT ME</h1>
+          <h1>About Me</h1>
           <div className="about-underline"></div>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat

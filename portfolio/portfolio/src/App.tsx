@@ -2,6 +2,7 @@ import "./app.scss";
 import Navbar from "./navbar/Navbar";
 import Hero from "./hero/Hero";
 import About from "./about/About";
+import Work from "./works/Work";
 
 const App = () => {
   return (
@@ -13,7 +14,9 @@ const App = () => {
       <section>
         <About />
       </section>
-      <section>works</section>
+      <section>
+        <Work />
+      </section>
       <section>animation</section>
       <section>skills</section>
       <section>contact</section>
